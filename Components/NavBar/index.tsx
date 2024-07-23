@@ -30,12 +30,12 @@ const Header = () => {
       key: "1",
       label: (
         <a
-          target="_blank"
+          target=""
           rel="noopener noreferrer"
-          href="https://www.antgroup.com"
+          href="/products"
           className="text-inter text-[14px] font-medium text-darkGray3"
         >
-          1st menu item
+          products
         </a>
       ),
     },
@@ -43,12 +43,12 @@ const Header = () => {
       key: "2",
       label: (
         <a
-          target="_blank"
+          target=""
           rel="noopener noreferrer"
-          href="https://www.antgroup.com"
+          href="/cart"
           className="text-inter text-[14px] font-medium text-darkGray3"
         >
-          2nd menu item
+          cart
         </a>
       ),
     },
@@ -56,12 +56,12 @@ const Header = () => {
       key: "3",
       label: (
         <a
-          target="_blank"
+          target=""
           rel="noopener noreferrer"
-          href="https://www.antgroup.com"
+          href="/contactUs"
           className="text-inter text-[14px] font-medium text-darkGray3"
         >
-          3rd menu item
+          contactUs
         </a>
       ),
     },
