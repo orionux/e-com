@@ -126,7 +126,7 @@ const Header = () => {
               title="Menu"
               placement="right"
               onClose={onClose}
-              visible={visible}
+              open={visible}
             >
               <Menu mode="vertical">
                 <Item key="home">
