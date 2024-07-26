@@ -15,7 +15,7 @@ function MenuIcon({ ...props }) {
         height="19.8"
         rx="9.9"
         stroke="black"
-        stroke-width="1.8"
+        strokeWidth="1.8"
       />
       <rect x="6.2998" y="7.85352" width="9.9" height="1.8" fill="black" />
       <rect x="6.2998" y="10.5532" width="6.3" height="1.8" fill="black" />
