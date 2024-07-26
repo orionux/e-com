@@ -1,5 +1,9 @@
 import React, { useState, ChangeEvent } from 'react';
 
+//icons
+import { FiMinus } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
+
 function InputNumber() {
   const [count, setCount] = useState(0);
 
@@ -21,27 +25,22 @@ function InputNumber() {
   return (
     <div className="flex items-center">
       <button
-        className="h-8 w-8 py-1 px-2 bg-gray-300 border-2 border-slate-800 border-[#606B6E] rounded-l justify-center hover:bg-gray-400 transition duration-200 ease-in-out transform hover:scale-110"
+        className="h-8 w-8 bg-gray-300 border-2 border-slate-800 border-[#606B6E] rounded-l flex justify-center hover:bg-gray-400 transition duration-200 ease-in-out transform hover:scale-110"
         onClick={handleDecrement}
       >
-        <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="12" height="2" fill="#2D3A4B" />
-        </svg>
+        <FiMinus className='self-center' />
       </button>
       <input
         type="text"
         value={count}
         onChange={handleChange}
-        className="h-8 py-1 w-16 text-center border-t border-b border-[#606B6E] focus:outline-none"
+        className="h-8 py-1 w-16 text-center border-t-2 border-b-2 border-[#606B6E] focus:outline-none"
       />
       <button
-        className="h-8 w-8 py-1 px-2 bg-gray-300 border-2 border-[#606B6E] rounded-r hover:bg-gray-400 transition duration-200 ease-in-out transform hover:scale-110"
+        className="h-8 w-8 bg-gray-300 border-2 border-[#606B6E] rounded-r flex justify-center hover:bg-gray-400 transition duration-200 ease-in-out transform hover:scale-110"
         onClick={handleIncrement}
       >
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect y="5" width="12" height="2" fill="#2D3A4B" />
-          <rect x="5" y="12" width="12" height="2" transform="rotate(-90 5 12)" fill="#2D3A4B" />
-        </svg>
+        <FiPlus className='self-center' />
       </button>
     </div>
   );

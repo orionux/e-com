@@ -4,11 +4,21 @@ import Layout from '@/Components';
 import React, { useState } from 'react';
 import Image from 'next/image';
 
+//ant components
 import { Button } from "antd";
-
 import type { ConfigProviderProps } from 'antd';
+
+//components
 import InputNumber from '@/Components/InputNumber';
 import TinyCard from '@/Components/TinyCard';
+import { ProductCard } from '@/Components/ProductCards';
+import ModelSlider from '@/Components/Sliders/ModelSlider';
+
+//react icons
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+
+//slider
+import { SliderOne } from '@/Components/Sliders';
 
 
   
@@ -37,26 +47,26 @@ const Products: React.FC = () => {
   return (
     <>
     <Layout>
-    <div className='bg-[#FFFBF6] h-[60rem] text-[#000]'>
+    <div className='bg-[#FEF2E3] h-[auto] text-[#000] self-center flex flex-col align-center justify-center'>
         <div className='pl-80 pt-10'>
             <a href="/"><u>	&lt; Back</u></a>
         </div>
         <div className='pl-80 pt-10 pb-5'>
             <a href="/">Home &gt; Categories &gt; Apple</a>
         </div>
-        <div className="  mx-60 flex gap-4 justify-start align-center text-center">
-            <div className='w-1/6 bg-[#FFFBF6] flex justify-center align-center '>
+        <div className="  w-[80%] flex self-center justify-start align-center text-center">
+            <div className='w-[20%] bg-[#FFFBF6] flex justify-center align-center p-5'>
             <div className='flex flex-col'>
                 <div><Image src='/images/productpage/watchsmall.png' alt='iwatch' height={70} width={70}  /></div>
                 <div><Image src='/images/productpage/watchsmall.png' alt='iwatch' height={70} width={70}  /></div>
                 <div><Image src='/images/productpage/watchsmall.png' alt='iwatch' height={70} width={70}  /></div>
             </div>
             </div>
-            <div className='w-2/6 bg-[#FFFBF6] flex justify-center align-center'>
+            <div className='w-[40%] bg-[#FFFBF6] flex justify-center align-center p-5'>
                 <div><Image src='/images/productpage/lapbig.png' alt='iwatch' height={500} width={500}  /></div>
 
             </div>
-            <div className='w-2/6 bg-[#FFFBF6] flex flex-col text-left '>
+            <div className='w-[40%] bg-[#fff] flex flex-col text-left  p-5'>
               
                 <div className=''>
                     <p className='bg-[#EEF0F2] w-min p-1 text-[#274C77] font-medium '>New</p>
@@ -92,12 +102,63 @@ const Products: React.FC = () => {
                     <TinyCard product={product} />
                     </div>
                 ))}
-                </div>            
-                
-                
+                </div>             
             </div>
         </div>
-
+        <div className='w-full self-center py-20'>
+            <h1 className='text-xl font-bold text-[#16384E] ps-20'>Models</h1>
+            <ModelSlider />
+        </div>
+        <div className=''>
+            <h1 className='text-xl font-bold text-[#16384E] ps-20'>Related Products</h1>
+            <div className="grid grid-cols-4 gap-4 pt-10 px-20">
+                <div className='flex align-center justify-center'>
+                <ProductCard
+                imgSrc="/images/productpage/watchbig.png"
+                productName="DJI Phantom 2 Vision+"
+                currency="$"
+                price={599}
+                ratingStarCount={4}
+                ratingCount={243}
+                />
+                </div>
+                <div className='flex align-center justify-center'>
+                <ProductCard
+                imgSrc="/images/productpage/watchbig.png"
+                productName="DJI Phantom 2 Vision+"
+                currency="$"
+                price={599}
+                ratingStarCount={4}
+                ratingCount={243}
+                />
+                </div>
+                <div className='flex align-center justify-center'>
+                <ProductCard
+                imgSrc="/images/productpage/watchbig.png"
+                productName="DJI Phantom 2 Vision+"
+                currency="$"
+                price={599}
+                ratingStarCount={4}
+                ratingCount={243}
+                />
+                </div>
+                <div className='flex align-center justify-center'>
+                <ProductCard
+                imgSrc="/images/productpage/watchbig.png"
+                productName="DJI Phantom 2 Vision+"
+                currency="$"
+                price={599}
+                ratingStarCount={4}
+                ratingCount={243}
+                />
+                </div>
+            </div>
+            <div className='flex align-center justify-center'>
+                <Button type="primary" size={size} className='px-10 m-10 mb-20'>
+                    See More<FaArrowUpRightFromSquare />
+                </Button>
+            </div>
+        </div>
     </div>
     </Layout>
     </>
