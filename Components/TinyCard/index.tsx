@@ -14,7 +14,7 @@ interface Product {
 
 const TinyCard: React.FC<{ product: Product }> = ({ product }) => {
   return (
-    <div className="flex items-center justify-center w-[30rem] px-4 py-5 border-0 rounded-lg shadow-xl bg-white gap-6 my-3 relative">
+    <div className="flex items-center justify-center w-[100%] lg:w-[120%] px-4 py-5 border-0 rounded-lg shadow-xl bg-white gap-6 my-3 relative ">
       <div className='absolute top-[-10px] right-[-10px] '>
        <IoIosCloseCircle size={30} className='cursor-pointer'/>
         </div>
