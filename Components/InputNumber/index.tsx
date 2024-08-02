@@ -25,7 +25,7 @@ function InputNumber() {
   return (
     <div className="flex items-center">
       <button
-        className="h-8 w-8 bg-gray-300 border-2 border-slate-800 border-[#606B6E] rounded-l flex justify-center hover:bg-gray-400 transition duration-200 ease-in-out transform hover:scale-110"
+        className="h-7 md:h-8 md:w-8 bg-gray-300 border-2 border-slate-800 border-[#606B6E] rounded-l flex justify-center hover:bg-gray-400 transition duration-200 ease-in-out transform hover:scale-110"
         onClick={handleDecrement}
       >
         <FiMinus className='self-center' />
@@ -34,10 +34,10 @@ function InputNumber() {
         type="text"
         value={count}
         onChange={handleChange}
-        className="h-8 py-1 w-16 text-center border-t-2 border-b-2 border-[#606B6E] focus:outline-none"
+        className="md:h-8 w-8 h-7 py-1 md:w-16 text-center border-t-2 border-b-2 border-[#606B6E] focus:outline-none"
       />
       <button
-        className="h-8 w-8 bg-gray-300 border-2 border-[#606B6E] rounded-r flex justify-center hover:bg-gray-400 transition duration-200 ease-in-out transform hover:scale-110"
+        className="h-7 md:h-8 md:w-8 bg-gray-300 border-2 border-[#606B6E] rounded-r flex justify-center hover:bg-gray-400 transition duration-200 ease-in-out transform hover:scale-110"
         onClick={handleIncrement}
       >
         <FiPlus className='self-center' />

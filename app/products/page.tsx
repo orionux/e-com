@@ -23,14 +23,14 @@ const products = [
   {
     id: 1,
     imageSrc: '/images/productpage/pistol.png',
-    flavour: 'Flavour Name 1',
-    productName: 'Product Name Here 1',
+    flavour: 'Flavour 1',
+    productName: 'Product 1',
   },
   {
     id: 2,
     imageSrc: '/images/productpage/pistol.png',
-    flavour: 'Flavour Name 2',
-    productName: 'Product Name Here 2',
+    flavour: 'Flavour 2',
+    productName: 'Product 2',
   },
 ];
 
@@ -42,7 +42,7 @@ const Products: React.FC = () => {
   return (
     <>
       <Layout>
-        <div className="bg-[#fff] min-h-screen text-[#000] flex flex-col align-center justify-center px-4 lg:px-40">
+        <div className="bg-[#fff] min-h-screen text-[#000] flex flex-col align-center justify-center px-4 lg:px-20">
           <div className="pt-10">
             <a href="/" className="text-blue-600 visited:text-red-600">
               &lt; <u className="text-[black] hover:text-[blue]">Back</u>
@@ -51,8 +51,8 @@ const Products: React.FC = () => {
           <div className="pt-10 pb-5">
             <h6 className="text-[#7E8F9A]">Home &gt; Categories &gt; <span className="text-[#252C32] font-medium">Apple</span></h6>
           </div>
-          <div className="flex flex-col lg:flex-row w-full lg:w-[80%] self-center justify-start align-center text-center">
-            <div className="lg:w-[10%] bg-[#FFFBF6] flex justify-center align-center p-5">
+          <div className="flex flex-col lg:flex-row w-full  self-center justify-start align-center text-center">
+            <div className="lg:w-[10%] bg-[#FFFBF6] flex justify-center align-center pt-5">
             <div className="hidden lg:flex flex-col">
                 <div><Image src="/images/productpage/watchsmall.png" alt="iwatch" height={80} width={80} /></div>
                 <div><Image src="/images/productpage/watchsmall.png" alt="iwatch" height={80} width={80} /></div>
@@ -60,21 +60,21 @@ const Products: React.FC = () => {
             </div>
 
             </div>
-            <div className="lg:w-[40%] bg-[#FEF2E3] flex justify-center align-center p-5">
-              <div><Image src="/images/productpage/lapbig.png" alt="iwatch" height={500} width={500} /></div>
+            <div className="lg:w-[45%] bg-[#FEF2E3] lg:self-end pt-5">
+              <img src="/images/productpage/lapbig.png" alt="iwatch" className='w-full h-50'/>
             </div>
             <div className="flex lg:hidden">
                 <div><Image src="/images/productpage/watchsmall.png" alt="iwatch" height={70} width={70} /></div>
                 <div><Image src="/images/productpage/watchsmall.png" alt="iwatch" height={70} width={70} /></div>
                 <div><Image src="/images/productpage/watchsmall.png" alt="iwatch" height={70} width={70} /></div>
             </div>
-            <div className="lg:w-[50%] bg-[#fff] flex flex-col text-left p-5">
+            <div className="lg:w-[45%] bg-[#fff] flex flex-col text-left pt-5">
               <div>
                 <p className="bg-[#EEF0F2] w-min p-1 text-[#274C77] font-medium">New</p>
               </div>
               <div className="flex align-start justify-start flex-col w-max text-[36px] font-bold text-[#1C274C] py-1">
-                <h1>Mac Book Pro 2024</h1>
-                <h1 className="justify-center">$590</h1>
+                <h1 className='text-3xl md:text-4xl lg:text-4xl xl:text-5xl mb-2'>Mac Book Pro 2024</h1>
+                <h1 className="justify-center text-3xl md:text-4xl lg:text-4xl xl:text-5xl">$590</h1>
               </div>
               <div className="text-[#546A7B] pb-2">
                 <p>107293</p>
@@ -94,19 +94,22 @@ const Products: React.FC = () => {
               <Button type="primary" size={size}>
                 Add to Cart
               </Button>
-              <div>
-                <p className="text-[#546A7B]">Total<span className="text-[#1C274C] text-[36px] font-bold">$590</span></p>
+              <div className=' self-end '>
+                <p className="text-[#546A7B]">Total<span className="text-[#1C274C] text-[36px] font-bold r">$590</span></p>
               </div>
-              <div>
+              
+            </div>
+          </div>
+          
+          <div className='md:w-[45%] w-[100%] self-center lg:self-end lg:pr-14'>
                 {products.map((product) => (
                   <div key={product.id} className="gap-3">
                     <TinyCard product={product} />
                   </div>
                 ))}
-              </div>
-            </div>
           </div>
-          <div className="w-full self-center py-20">
+          
+          <div className="w-full self-center py-5">
             <h1 className="text-xl font-bold text-[#16384E]">Models</h1>
             <ModelSlider />
           </div>
