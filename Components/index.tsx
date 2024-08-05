@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from './NavBar'
-import Footer from './Footer'
+import Foooter from './Foooter'
+import NavigationBar from './NavigationBar';
 
 type LayoutProps = {
     children: React.ReactNode;
@@ -10,9 +10,9 @@ type LayoutProps = {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
-      <Header />
+      <NavigationBar />
       <main>{children}</main>
-      <Footer />
+      <Foooter />
     </>
   );
 };
