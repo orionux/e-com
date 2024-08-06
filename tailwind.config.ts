@@ -19,6 +19,7 @@ const config: Config = {
       inter: ['Inter', 'sans-serif'],
       open_sans: ['Open Sans', 'sans-serif'],
       source_sans_3: ['Source Sans 3', 'sans-serif'],
+      helvetica: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
     },
     colors: {
       darkGray1: '#535353',
