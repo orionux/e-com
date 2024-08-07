@@ -4,6 +4,8 @@ import { Button } from "@/Components/Buttons";
 import { SliderOne } from "@/Components/Sliders";
 import Layout from "@/Components";
 import { ProductCard } from "@/Components/ProductCards";
+import SliderHome from "@/Components/Sliders/SliderHome";
+import { ProductItem } from "@/Components/ProductItem";
 
 const categories = [
   'All Products',
@@ -63,16 +65,20 @@ export default function Home() {
       ))}
     </div>
 
-        <div className="bg-white text-black p-20">
+        <div className="bg-white text-black py-20 ">
           <p className="text-center font-bold text-2xl text-[#16384E]">
           Popular Products
           </p>
+          <SliderHome />
         </div>
-
-        <div className="flex flex-col lg:flex-row w-full p-[100px] bg-white">
-          <p className="text-center">
+        <div className="bg-white text-black p-20">
+          <p className="text-center font-bold text-2xl text-[#16384E]">
           Latest Products
           </p>
+        </div>
+
+        <div className="flex flex-col lg:flex-row w-full p-[100px] bg-white">
+          
           <ProductCard
             imgSrc="/images/productpage/lapbig.png"
             productName="DJI Phantom 2 Vision+"
@@ -107,40 +113,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="flex flex-col lg:flex-row w-full p-[100px] bg-white">
-          <ProductCard
-            imgSrc="/images/productpage/lapbig.png"
-            productName="DJI Phantom 2 Vision+"
-            currency="$"
-            price={599}
-            ratingStarCount={4}
-            ratingCount={243}
-          />
-          <ProductCard
-            imgSrc="/images/productpage/lapbig.png"
-            productName="DJI Phantom 2 Vision+"
-            currency="$"
-            price={599}
-            ratingStarCount={5}
-            ratingCount={243}
-          />
-          <ProductCard
-            imgSrc="/images/productpage/lapbig.png"
-            productName="DJI Phantom 2 Vision+"
-            currency="$"
-            price={599}
-            ratingStarCount={3}
-            ratingCount={243}
-          />
-          <ProductCard
-            imgSrc="/images/productpage/lapbig.png"
-            productName="DJI Phantom 2 Vision+"
-            currency="$"
-            price={599}
-            ratingStarCount={2}
-            ratingCount={243}
-          />
-        </div>
+        
 
         <div className="">
           <img src="/images/home/jbl.png" alt="" />

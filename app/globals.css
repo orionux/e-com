@@ -51,6 +51,60 @@ main {
 }
 
 
+.swiper-button-prev, .swiper-button-next {
+  color: #000;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.custom-prev {
+  left: -50px; 
+}
+
+.custom-next {
+  right: -50px;
+}
+
+/*productItem*/
+.star {
+  font-size: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.filled {
+  color: #F8C51B; 
+}
+
+.unfilled {
+  color: #000; 
+}
+
+.productAction {
+  top: 70%;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.3s ease, transform 0.9s ease;
+  transform: translateY(20px); 
+}
+
+.productItem:hover .productAction {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+@keyframes bounce {
+  0% { transform: translateY(20px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.productItem:hover .productAction {
+  animation: bounce 0.9s ease;
+}
+
 
 
 
