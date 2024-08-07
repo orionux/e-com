@@ -159,10 +159,10 @@ export default function Home() {
           <SliderHome />
         </div>
         <div className="bg-white text-black p-20">
-          <p className="text-center font-bold text-2xl text-[#16384E]">
+          <p className="text-center font-bold text-2xl text-[#16384E] pb-10">
           Latest Products
           </p>
-          <div className=" grid grid-cols-4 gap-4">
+          <div className=" grid lg:grid-cols-4 gap-4">
             
               {products.slice(0, 4).map((product) => (
                 <ProductItem 
@@ -222,7 +222,7 @@ export default function Home() {
         </div>
 
         <div className="bg-white text-black">
-          <p className="text-start font-bold text-2xl text-[#16384E] ps-5 pt-16">
+          <p className="text-start font-bold text-2xl text-[#16384E] ps-5 pt-16 pb-5">
           All Products
           </p>
           <div className=" grid grid-cols-4 gap-4 ">
