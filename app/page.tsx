@@ -31,6 +31,93 @@ const bgColors = [
   'bg-[#7FFFD4]'
 ];
 
+const products = [
+  {id: 1,
+   imgSrc: '/images/home/6.jpg',
+   productName:'Sofa Chaise Sleeper',
+   price: 90.00,
+   currency: '$',
+   ratingStarCount: 4
+  },
+  {id: 2,
+    imgSrc: '/images/home/7.jpg' ,
+    productName:'Darcy Sofa',
+    price: 80.00,
+    currency: '$',
+    ratingStarCount: 5
+   },
+   {id: 3,
+    imgSrc: '/images/home/8.jpg' ,
+    productName:'Bladen Sofa',
+    price: 60.00,
+    currency: '$',
+    ratingStarCount: 4
+   },
+   {id: 4,
+    imgSrc: '/images/home/9.jpg' ,
+    productName:'Ardenboro Sofa',
+    price: 80.00,
+    currency: '$',
+    ratingStarCount: 3
+   },
+   {id: 5,
+    imgSrc: '/images/home/10.jpg' ,
+    productName:'Daystar Sofa',
+    price: 99.00,
+    currency: '$',
+    ratingStarCount: 4
+   },
+   {id: 6,
+    imgSrc: '/images/home/11.jpg' ,
+    productName:'Trucker Accent Sofa',
+    price: 66.00,
+    currency: '$',
+    ratingStarCount: 5
+   },
+   {id: 7,
+    imgSrc: '/images/home/12.jpg' ,
+    productName:'FTrivia Accent Chair',
+    price: 90.00,
+    currency: '$',
+    ratingStarCount: 3
+   },
+   {id: 8,
+    imgSrc: '/images/home/13.jpg' ,
+    productName:'name13',
+    price: 94.00,
+    currency: '$',
+    ratingStarCount: 4
+   },
+   {id: 9,
+    imgSrc: '/images/home/14.jpg' ,
+    productName:'name14',
+    price: 93.00,
+    currency: '$',
+    ratingStarCount: 5
+   },
+   {id: 10,
+    imgSrc: '/images/home/15.jpg' ,
+    productName:'name15',
+    price: 54.00,
+    currency: '$',
+    ratingStarCount: 3
+   },
+   {id: 11,
+    imgSrc: '/images/home/7.jpg' ,
+    productName:'name16',
+    price: 44.00,
+    currency: '$',
+    ratingStarCount: 4
+   },
+   {id: 12,
+    imgSrc: '/images/home/14.jpg' ,
+    productName:'name14',
+    price: 93.00,
+    currency: '$',
+    ratingStarCount: 5
+   }, 
+ 
+]
 export default function Home() {
   return (
     <>
@@ -66,7 +153,7 @@ export default function Home() {
     </div>
 
         <div className="bg-white text-black py-20 ">
-          <p className="text-center font-bold text-2xl text-[#16384E]">
+          <p className="text-center font-bold text-2xl text-[#16384E] pb-10">
           Popular Products
           </p>
           <SliderHome />
@@ -75,8 +162,23 @@ export default function Home() {
           <p className="text-center font-bold text-2xl text-[#16384E]">
           Latest Products
           </p>
+          <div className=" grid grid-cols-4 gap-4">
+            
+              {products.slice(0, 4).map((product) => (
+                <ProductItem 
+                  key={product.id}
+                  imgSrc={product.imgSrc}
+                  productName={product.productName}
+                  price={product.price}
+                  currency={product.currency}
+                  ratingStarCount={product.ratingStarCount}
+                  />
+              ))}
+                 
+          </div>
         </div>
 
+        {/*
         <div className="flex flex-col lg:flex-row w-full p-[100px] bg-white">
           
           <ProductCard
@@ -112,7 +214,7 @@ export default function Home() {
             ratingCount={243}
           />
         </div>
-
+          */}
         
 
         <div className="">
@@ -120,9 +222,23 @@ export default function Home() {
         </div>
 
         <div className="bg-white text-black">
-          <p className="">
+          <p className="text-start font-bold text-2xl text-[#16384E] ps-5 pt-16">
           All Products
           </p>
+          <div className=" grid grid-cols-4 gap-4 ">
+            
+              {products.slice(0, 12).map((product) => (
+                <ProductItem 
+                  key={product.id}
+                  imgSrc={product.imgSrc}
+                  productName={product.productName}
+                  price={product.price}
+                  currency={product.currency}
+                  ratingStarCount={product.ratingStarCount}
+                  />
+              ))}
+                 
+          </div>
         </div>
         
       </Layout>
