@@ -61,20 +61,20 @@ const SliderHome: React.FC = () => {
           nextEl: '.swiper-button-next',
         }}
       >
-        <SwiperSlide>
-          <ProductItem imgSrc={'/images/home/1.jpg'} productName={'Sofa Chaise Sleeper'} price={90.00} currency={'$'} ratingStarCount={5} />
+        <SwiperSlide className=''>
+          <ProductItem imgSrc={'/images/home/1.jpg'} productName={'Sofa Chaise Sleeper'} price={90.00} currency={'$'} ratingStarCount={5}  />
         </SwiperSlide>
         <SwiperSlide>
-          <ProductItem imgSrc={'/images/home/2.jpg'} productName={'Sofa Chaise Sleeper'} price={80} currency={'$'} ratingStarCount={2}  />
+          <ProductItem imgSrc={'/images/home/2.jpg'} productName={'Sofa Chaise Sleeper'} price={80} currency={'$'} ratingStarCount={2}   />
         </SwiperSlide>
         <SwiperSlide>
-          <ProductItem imgSrc={'/images/home/3.jpg'} productName={'Sofa Chaise Sleeper'} price={80} currency={'$'} ratingStarCount={2}  />
+          <ProductItem imgSrc={'/images/home/3.jpg'} productName={'Sofa Chaise Sleeper'} price={80} currency={'$'} ratingStarCount={2}   />
         </SwiperSlide>
         <SwiperSlide>
-          <ProductItem imgSrc={'/images/home/4.jpg'} productName={'Sofa Chaise Sleeper'} price={80} currency={'$'} ratingStarCount={4}  />
+          <ProductItem imgSrc={'/images/home/4.jpg'} productName={'Sofa Chaise Sleeper'} price={80} currency={'$'} ratingStarCount={4}   />
         </SwiperSlide>
         <SwiperSlide>
-          <ProductItem imgSrc={'/images/home/1.jpg'} productName={'Sofa Chaise Sleeper'} price={90.00} currency={'$'} ratingStarCount={3}  />
+          <ProductItem imgSrc={'/images/home/1.jpg'} productName={'Sofa Chaise Sleeper'} price={90.00} currency={'$'} ratingStarCount={3}   />
         </SwiperSlide>
       </Swiper>
       <button onClick={handleNextClick} className='ml-2 transition-transform transform hover:scale-110 '>

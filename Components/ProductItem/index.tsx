@@ -1,11 +1,12 @@
 "use client";
 import { Card, Typography } from "antd";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { MdOutlineStarBorder  } from "react-icons/md";
 import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { IoEyeOutline } from "react-icons/io5";
+import QuickviewModel from "../Models/QuickviewModel";
 
 
 
@@ -26,10 +27,17 @@ export const ProductItem: React.FC<CardProps> = ({
   price,
   currency,
   ratingStarCount,
+  
 
 }) => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+  
   return (
-    <Card className="px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-600 transition duration-300 productItem ">
+    <Card className="px-4 py-2 bg-blue-500 text-black rounded hover:bg-blue-600 transition duration-300 productItem">
       
       <div className="flex w-100 justify-center items-center py-[20px] relative">
         <Image
@@ -46,8 +54,9 @@ export const ProductItem: React.FC<CardProps> = ({
             <div className="bg-black rounded-full p-1">
                 <CiShoppingCart color="white" size={23}/>
             </div>
-            <div className="bg-black rounded-full p-1">
+            <div className="bg-black rounded-full p-1" onClick={openModal}>
                 <IoEyeOutline color="white" size={23}/>
+                
             </div>
 
         </div>
@@ -78,6 +87,8 @@ export const ProductItem: React.FC<CardProps> = ({
           
         </div>
       </div>
+      <QuickviewModel isOpen={isModalOpen} onClose={closeModal} />
+
     </Card>
   );
 };
