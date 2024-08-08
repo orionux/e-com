@@ -15,7 +15,7 @@ const NaviBar: React.FC = () => {
   return (
     <>
     <div className='bg-[#FEE3B8] h-[20px]'></div>
-    <div className="flex justify-between items-center p-4 bg-white text-[#606B6E]">
+    <div className="flex flex-wrap justify-between items-center p-4 bg-white text-[#606B6E]">
           <div className="flex items-center">
               <div className="flex items-center ml-4">
                   <CiSearch size={25} className="mr-2 text-gray-600" />

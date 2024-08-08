@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/Components/Buttons";
@@ -6,6 +8,7 @@ import Layout from "@/Components";
 import { ProductCard } from "@/Components/ProductCards";
 import SliderHome from "@/Components/Sliders/SliderHome";
 import { ProductItem } from "@/Components/ProductItem";
+import BrandSlider from "@/Components/Sliders/BrandSlider";
 
 const categories = [
   'All Products',
@@ -144,10 +147,10 @@ export default function Home() {
           <p className=" text-lg pt-3">Sri Lanka Biggest Electronic Collection</p>
         </div>
 
-        <div className="flex bg-white text-[#1C274C] gap-4  justify-center mx-10 p-5 ">
+        <div className="flex flex-wrap bg-white text-[#1C274C] gap-4  justify-center mx-10 p-5 ">
       {categories.map((category, index) => (
-        <div key={index} className={`${bgColors[index % bgColors.length]} w-32 p-2 text-center rounded`}>
-          <p>{category}</p>
+        <div key={index} className={`${bgColors[index % bgColors.length]} flex w-auto h-auto p-2 text-center rounded`}>
+          <p className="text-sm">{category}</p>
         </div>
       ))}
     </div>
@@ -159,7 +162,7 @@ export default function Home() {
           <SliderHome />
         </div>
         <div className="bg-white text-black p-20">
-          <p className="text-center font-bold text-2xl text-[#16384E] pb-10">
+          <p className="text-start font-bold text-lg text-[#16384E] pb-2">
           Latest Products
           </p>
           <div className=" grid lg:grid-cols-4 gap-4">
@@ -221,11 +224,11 @@ export default function Home() {
           <img src="/images/home/jbl.png" alt="" />
         </div>
 
-        <div className="bg-white text-black">
-          <p className="text-start font-bold text-2xl text-[#16384E] ps-5 pt-16 pb-5">
+        <div className="bg-white text-black p-20">
+          <p className="text-start font-bold text-lg text-[#16384E]  pt-16 pb-2">
           All Products
           </p>
-          <div className=" grid grid-cols-4 gap-4 ">
+          <div className=" grid lg:grid-cols-4 gap-4">
             
               {products.slice(0, 12).map((product) => (
                 <ProductItem 
@@ -239,6 +242,10 @@ export default function Home() {
               ))}
                  
           </div>
+        </div>
+
+        <div>
+          <BrandSlider />
         </div>
         
       </Layout>
