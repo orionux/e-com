@@ -126,18 +126,18 @@ export default function Home() {
     <>
       <Layout>
        
-        <div className="flex w-full h-[75vh]  bg-[#FEF2E3] relative"  
+        <div className="flex w-full h-[50vh] md:h-[75vh]  bg-[#FEF2E3] relative"  
         style={{
           backgroundImage:`url('/images/home/Background.png')`, 
           backgroundPosition:'center top', 
           backgroundRepeat:'no-repeat',
-          
+          backgroundSize: 'cover'
           }}>
-          <div className="text-[#606B6E] w-full absolute top-[40%] left-[-5%] space-y-2 flex flex-col justify-end items-end">
-            <p className="font-semibold">Electronic Collection</p>
-            <p className="text-5xl font-semibold pt-1">Sri Lankan <span className="font-extrabold">Biggest&nbsp;</span><br /></p>
-            <p className="text-4xl font-light">Electronic Collection</p>
-            <p className="text-lg pt-2">Join Now</p>
+           <div className="text-[#606B6E] w-full absolute top-[30%] md:top-[40%] md:left-[-5%] space-y-2 flex flex-col justify-end items-end md:items-end text-right">
+            <p className="font-semibold text-sm md:text-base">Electronic Collection</p>
+            <p className="text-4xl md:text-5xl font-semibold pt-1">Sri Lankan <span className="font-extrabold">Biggest&nbsp;</span></p>
+            <p className="text-2xl md:text-4xl font-light">Electronic Collection</p>
+            <p className="text-lg md:text-lg pt-2">Join Now</p>
           </div>
         </div>
 
@@ -165,7 +165,7 @@ export default function Home() {
           <p className="text-start font-bold text-lg text-[#16384E] pb-2">
           Latest Products
           </p>
-          <div className=" grid lg:grid-cols-4 gap-4">
+          <div className=" grid md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-4">
             
               {products.slice(0, 4).map((product) => (
                 <ProductItem 
@@ -220,15 +220,15 @@ export default function Home() {
           */}
         
 
-        <div className="">
-          <img src="/images/home/jbl.png" alt="" />
+        <div >
+          <img src="/images/home/jbl.png" alt="" width={'100%'} height={750} />
         </div>
 
         <div className="bg-white text-black p-20">
           <p className="text-start font-bold text-lg text-[#16384E]  pt-16 pb-2">
           All Products
           </p>
-          <div className=" grid lg:grid-cols-4 gap-4">
+          <div className=" grid md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-4">
             
               {products.slice(0, 12).map((product) => (
                 <ProductItem 

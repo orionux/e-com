@@ -35,7 +35,7 @@ const SliderHome: React.FC = () => {
         onInit={(swiper) => swiperRef.current = swiper}
         modules={[Navigation, Autoplay]}
         spaceBetween={10}
-        slidesPerView={4}
+        slidesPerView={'auto'}
         loop={true}
         freeMode= {true}
         speed={1000}
@@ -43,15 +43,15 @@ const SliderHome: React.FC = () => {
         breakpoints={{
           640: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 10,
           },
           768: {
             slidesPerView: 2,
-            spaceBetween: 30,
+            spaceBetween: 20,
           },
           1024: {
             slidesPerView: 4,
-            spaceBetween: 40,
+            spaceBetween: 30,
           },
         }}
         onSlideChange={() => console.log('slide change')}

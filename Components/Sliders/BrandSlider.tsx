@@ -28,7 +28,7 @@ const BrandSlider = () => {
       <Swiper
       modules={[ Autoplay ]}
       spaceBetween={20}
-      slidesPerView={6}
+      slidesPerView={'auto'}
       loop={true}
       freeMode= {true}
       speed={10000}
@@ -38,7 +38,7 @@ const BrandSlider = () => {
       }}
       breakpoints={{
         400: {
-            slidesPerView: 1.5,
+            slidesPerView: 2,
             spaceBetween: 5,
           },
         640: {
@@ -46,11 +46,11 @@ const BrandSlider = () => {
           spaceBetween: 5,
         },
         768: {
-          slidesPerView: 4,
+          slidesPerView: 3,
           spaceBetween: 30,
         },
         1024: {
-          slidesPerView: 6,
+          slidesPerView: 5,
           spaceBetween: 40,
         },
       }}
@@ -60,7 +60,7 @@ const BrandSlider = () => {
     >
         {images.map((src, index) => (
             <SwiperSlide key={index}>
-            <Image src={src} alt={`model-${index}`} width='200' height='200' className='cursor-pointer' />  
+            <Image src={src} alt={`model-${index}`} width='250' height='200' className='cursor-pointer' />  
             </SwiperSlide>
             ))}
       
