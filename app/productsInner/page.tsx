@@ -36,7 +36,7 @@ const products = [
 
 type SizeType = ConfigProviderProps['componentSize'];
 
-const Products: React.FC = () => {
+const ProductsInner: React.FC = () => {
   const [size, setSize] = useState<SizeType>('large');
 
   return (
@@ -176,4 +176,4 @@ const Products: React.FC = () => {
   );
 };
 
-export default Products;
+export default ProductsInner;

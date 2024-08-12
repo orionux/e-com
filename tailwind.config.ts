@@ -1,3 +1,4 @@
+import { Poppins } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -20,6 +21,7 @@ const config: Config = {
       open_sans: ['Open Sans', 'sans-serif'],
       source_sans_3: ['Source Sans 3', 'sans-serif'],
       helvetica: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+      Poppins: ["Poppins", 'sans-serif']
     },
     colors: {
       darkGray1: '#535353',

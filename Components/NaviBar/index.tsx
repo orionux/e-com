@@ -10,7 +10,7 @@ const NaviBar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const links = [
     { name: 'Home', href: '/' },
-    { name: 'Shop', href: '/shop' },
+    { name: 'Shop', href: '/product' },
     { name: 'Contact', href: '/contact' },
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'About Us', href: '/about-us' },
