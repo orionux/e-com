@@ -10,84 +10,84 @@ import { MdOutlineStarBorder } from 'react-icons/md';
 
 const products = [
     {id: 1,
-     imgSrc: '/images/home/6.jpg',
+     imgSrc: '/images/productpage/lapbig.png',
      productName:'Sofa Chaise Sleeper',
      price: 90.00,
      currency: '$',
      ratingStarCount: 4
     },
     {id: 2,
-      imgSrc: '/images/home/7.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'Darcy Sofa',
       price: 80.00,
       currency: '$',
       ratingStarCount: 5
      },
      {id: 3,
-      imgSrc: '/images/home/8.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'Bladen Sofa',
       price: 60.00,
       currency: '$',
       ratingStarCount: 4
      },
      {id: 4,
-      imgSrc: '/images/home/9.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'Ardenboro Sofa',
       price: 80.00,
       currency: '$',
       ratingStarCount: 3
      },
      {id: 5,
-      imgSrc: '/images/home/10.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'Daystar Sofa',
       price: 99.00,
       currency: '$',
       ratingStarCount: 4
      },
      {id: 6,
-      imgSrc: '/images/home/11.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'Trucker Accent Sofa',
       price: 66.00,
       currency: '$',
       ratingStarCount: 5
      },
      {id: 7,
-      imgSrc: '/images/home/12.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'FTrivia Accent Chair',
       price: 90.00,
       currency: '$',
       ratingStarCount: 3
      },
      {id: 8,
-      imgSrc: '/images/home/13.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'name13',
       price: 94.00,
       currency: '$',
       ratingStarCount: 4
      },
      {id: 9,
-      imgSrc: '/images/home/14.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'name14',
       price: 93.00,
       currency: '$',
       ratingStarCount: 5
      },
      {id: 10,
-      imgSrc: '/images/home/15.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'name15',
       price: 54.00,
       currency: '$',
       ratingStarCount: 3
      },
      {id: 11,
-      imgSrc: '/images/home/7.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'name16',
       price: 44.00,
       currency: '$',
       ratingStarCount: 4
      },
      {id: 12,
-      imgSrc: '/images/home/14.jpg' ,
+      imgSrc: '/images/productpage/lapbig.png' ,
       productName:'name14',
       price: 93.00,
       currency: '$',
@@ -244,7 +244,7 @@ const Product: React.FC = () => {
                 <div>
                     <div className='flex my-5'>
                         <div className=''>
-                        <img src='/images/home/gownsmall.png' alt=''  />
+                        <img src='/images/productpage/watchsmall.png' alt=''  />
                         </div>
                         <div className='space-y-3 ms-4'>
                             <p className='text-[#16384E] font-semibold'>Flying Drone</p>
@@ -260,7 +260,7 @@ const Product: React.FC = () => {
                     </div>
                     <div className='flex my-5'>
                         <div>
-                        <img src='/images/home/gownsmall.png' alt=''/>
+                        <img src='/images/productpage/watchsmall.png' alt=''/>
                         </div>
                         <div className='space-y-3 ms-4'>
                             <p className='text-[#16384E] font-semibold'>Flying Drone</p>
@@ -276,7 +276,7 @@ const Product: React.FC = () => {
                     </div>
                     <div className='flex my-5'>
                         <div>
-                        <img src='/images/home/gownsmall.png' alt=''/>
+                        <img src='/images/productpage/watchsmall.png' alt=''/>
                         </div>
                         <div className='space-y-3 ms-4'>
                             <p className='text-[#16384E] font-semibold'>Flying Drone</p>
@@ -292,7 +292,7 @@ const Product: React.FC = () => {
                     </div>
                     <div  className='flex my-5'>
                         <div>
-                        <img src='/images/home/gownsmall.png' alt=''/>
+                        <img src='/images/productpage/watchsmall.png' alt=''/>
                         </div>
                         <div className='space-y-3 ms-4'>
                             <p className='text-[#16384E] font-semibold'>Flying Drone</p>
