@@ -4,6 +4,7 @@ import Layout from '@/Components'
 import { ProductItem } from '@/Components/ProductItem';
 import React, { useEffect, useRef } from 'react'
 import { CiSearch } from 'react-icons/ci'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
 import { MdOutlineStarBorder } from 'react-icons/md';
 
 
@@ -166,16 +167,17 @@ const Product: React.FC = () => {
     <Layout >
       <div className='text-black w-full flex font-Poppins bg-[#F8F8F8]'>
         <div className='w-[25%] p-4 bg-white'>
-          <p className='font-bold text-lg pb-2 text-[#16384E]'>Search Products</p>
+          <p className='font-bold text-lg pb-2 text-[#16384E] mb-4'>Search Products</p>
           <div className="hidden lg:flex items-center mb-4">
-            <CiSearch size={25} className="mr-2 text-gray-600" />
+            
             <input
               type="text"
-              placeholder="Search..."
-              className="outline-none w-full"
+              placeholder="Search Products..."
+              className="outline-none w-full bg-[#f1f1f1] font-[500] text-sm p-2 none repeat scroll 0 0]"
             />
+            <CiSearch size={25} className="mr-2 text-gray-600 bg-[#dee2e6] h-9 w-9 p-1" />
           </div>
-          <p className='font-bold text-lg  text-[#16384E]'>Filter by Price</p>
+          <p className='font-bold text-lg  text-[#16384E] mt-10 mb-8'>Filter by Price</p>
           
           <div className=" mb-10">
           <div className="price-input">
@@ -189,14 +191,14 @@ const Product: React.FC = () => {
           <div className="slider mt-4 ">
             <div className="progress" ref={rangeRef}></div>
           </div>
-          <div className="range-input mt-2">
+          <div className="range-input mt-2 mb-14">
             <input type="range" ref={minRangeRef} className="range-min" min="0" max="10000" />
             <input type="range" ref={maxRangeRef} className="range-max" min="0" max="10000" />
           </div>
           </div>
             <div>
-            <p className='font-bold text-lg  text-[#16384E]'>Categories</p>
-            <div className='text-[#888888] font-semibold pt-2 text-lg space-y-2'>
+            <p className='font-bold text-lg  text-[#16384E] mb-5'>Categories</p>
+            <div className='text-[#aaa] font-semibold pt-2 text-lg space-y-5 mb-10'>
                 <div className='flex justify-between'>
                     <p>Accessories</p>
                     <p> 4</p>
@@ -215,8 +217,8 @@ const Product: React.FC = () => {
                 </div>  
             </div>
             </div>
-            <div className='pt-2'>
-                <p className='font-bold text-lg pb-2 text-[#16384E]'>Color</p>
+            <div className='pt-2 mb-10'>
+                <p className='font-bold text-lg pb-2 text-[#16384E] mb-4'>Color</p>
                 <div className='flex space-x-2'>
                     <div className='bg-[black] rounded-full w-5 h-5'></div>
                     <div className='bg-[#ff01f0] rounded-full w-5 h-5'></div>
@@ -226,9 +228,9 @@ const Product: React.FC = () => {
                     <div className='bg-[#8a00ff] rounded-full w-5 h-5'></div>
                 </div>
             </div>
-            <div className='pt-2'>
-                <p className='font-bold text-lg pb-2 text-[#16384E]'>Size</p>
-                <div className='flex space-x-5 text-[#888] font-semibold'>
+            <div className='pt-2 mb-8'>
+                <p className='font-bold text-lg pb-2 text-[#16384E] mb-4'>Size</p>
+                <div className='flex space-x-5 text-[#aaa] font-semibold'>
                     <div>XL</div>
                     <div>M</div>
                     <div>L</div>
@@ -246,14 +248,14 @@ const Product: React.FC = () => {
                         </div>
                         <div className='space-y-3 ms-4'>
                             <p className='text-[#16384E] font-semibold'>Flying Drone</p>
-                            <div className='flex'>
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
+                            <div className='flex text-[#adb5bd]'>
+                                <MdOutlineStarBorder size={20} />
+                                <MdOutlineStarBorder size={20} />
+                                <MdOutlineStarBorder size={20} />
+                                <MdOutlineStarBorder size={20} />
+                                <MdOutlineStarBorder size={20} />
                             </div>
-                            <p>$140.00</p>
+                            <p className='text-[#aaa] font-bold'>$140.00</p>
                         </div>
                     </div>
                     <div className='flex my-5'>
@@ -262,14 +264,14 @@ const Product: React.FC = () => {
                         </div>
                         <div className='space-y-3 ms-4'>
                             <p className='text-[#16384E] font-semibold'>Flying Drone</p>
-                            <div className='flex'>
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
+                            <div className='flex text-[#adb5bd]'>
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
                             </div>
-                            <p>$140.00</p>
+                            <p className='text-[#aaa] font-bold'>$140.00</p>
                         </div>
                     </div>
                     <div className='flex my-5'>
@@ -278,14 +280,14 @@ const Product: React.FC = () => {
                         </div>
                         <div className='space-y-3 ms-4'>
                             <p className='text-[#16384E] font-semibold'>Flying Drone</p>
-                            <div className='flex'>
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
+                            <div className='flex text-[#adb5bd]'>
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
                             </div>
-                            <p>$140.00</p>
+                            <p className='text-[#aaa] font-bold'>$140.00</p>
                         </div>
                     </div>
                     <div  className='flex my-5'>
@@ -294,14 +296,14 @@ const Product: React.FC = () => {
                         </div>
                         <div className='space-y-3 ms-4'>
                             <p className='text-[#16384E] font-semibold'>Flying Drone</p>
-                            <div className='flex'>
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
-                                <MdOutlineStarBorder />
+                            <div className='flex text-[#adb5bd]'>
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
+                                <MdOutlineStarBorder size={20}  />
                             </div>
-                            <p>$140.00</p>
+                            <p className='text-[#aaa] font-bold'>$140.00</p>
                         </div>
                     </div>
                     
@@ -312,7 +314,7 @@ const Product: React.FC = () => {
           <p className='text-center text-2xl font-bold pb-10'>JBL Product Company</p>
             <div className='w-full flex  px-10 bg-white'>
                 <div className='w-[30%]'>
-                    <img src="/images/productpage/girl.png" alt="" width={200} height={200} />
+                    <img src="/images/productpage/girl.png" alt="" width={300} height={300} />
                 </div>
                 <div className='w-[70%] flex flex-col items-start justify-center ps-10'>
                     <img src="/images/productpage/jbl.png" alt="" width={70} height={70} />
@@ -336,6 +338,7 @@ const Product: React.FC = () => {
                 ))}
                 
             </div>
+            {/*
             <div className='flex  text-[#353535] py-10 px-4  my-5  bg-white justify-between'>
                 <div className='flex'>
                     <div className='flex items-center'>
@@ -373,6 +376,33 @@ const Product: React.FC = () => {
                         <p className='text-xs'>Payment 100% secure</p>
                     </div>
                 </div>
+            </div>
+            */}
+            <div className="pagination-style">
+                <ul>
+                <li>
+                    <a href="#">
+                    <FaAngleLeft />
+                    </a>
+                </li>
+                <li>
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">...</a>
+                </li>
+                <li>
+                    <a href="#">19</a>
+                </li>
+                <li className="active">
+                    <a href="#">
+                    <FaAngleRight />
+                    </a>
+                </li>
+                </ul>
             </div>
         </div>
 
