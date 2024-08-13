@@ -42,7 +42,7 @@ const NaviBar: React.FC = () => {
         <div className="hidden lg:flex lg:space-x-10">
           {links.map((link, index) => (
             <Link key={index} href={link.href}>
-              <span className="cursor-pointer text-[#606B6E] hover:underline">
+              <span className="cursor-pointer text-[#606B6E] hover:underline hover:text-blue-500">
                 {link.name}
               </span>
             </Link>

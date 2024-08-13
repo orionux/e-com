@@ -23,7 +23,7 @@ function InputNumber() {
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center text-black">
       <button
         className="h-7 md:h-8 md:w-8 bg-gray-300 border-2 border-slate-800 border-[#606B6E] rounded-l flex justify-center hover:bg-gray-400 transition duration-200 ease-in-out transform hover:scale-110"
         onClick={handleDecrement}

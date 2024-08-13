@@ -67,6 +67,31 @@ main {
   right: -50px;
 }
 
+
+/**/
+.nav-link {
+  position: relative;
+  color: var(--darkGray3);
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: gold;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link-active::after {
+  width: 100%;
+}
+
 /*productItem*/
 .star {
   font-size: 20px;
