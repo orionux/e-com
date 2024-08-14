@@ -2,12 +2,22 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-//import "./bootstrap.css";
-//import "./color.css";
-//import "./fontawesome.css";
-//import "./style.css";
-//import "./plugins.css";
-//import "./responsive.css";
+//css
+import "../styles/bootstrap.min.css";
+import "../styles/magnific-popup.css";
+import "../styles/animate.css";
+import "../styles/owl.carousel.min.css";
+import "../styles/themify-icons.css";
+import "../styles/pe-icon-7-stroke.css";
+import "../styles/meanmenu.min.css";
+import "../styles/bundle.css";
+import "../styles/style.css";
+import "../styles/responsive.css";
+import "../styles/easyzoom.css";
+import "../styles/hamburgers.min.css";
+import "../styles/icofont.css";
+import "../styles/jquery-ui.css";
+import "../styles/slinky.min.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,416 +1,1253 @@
-"use client";
+import Layout from "@/Components";
+import Link from "next/link";
+import React from "react";
 
-import Layout from '@/Components'
-import { ProductItem } from '@/Components/ProductItem';
-import React, { useEffect, useRef } from 'react'
-import { CiSearch } from 'react-icons/ci'
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa6';
-import { MdOutlineStarBorder } from 'react-icons/md';
-
-
-const products = [
-    {id: 1,
-     imgSrc: '/images/productpage/lapbig.png',
-     productName:'Sofa Chaise Sleeper',
-     price: 90.00,
-     currency: '$',
-     ratingStarCount: 4
+const Product = () => {
+  const products = [
+    {
+      id: "product1",
+      name: "Flying Drone",
+      image: "/images/productpage/lapsmall.png",
+      price: "$140.00",
     },
-    {id: 2,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'Darcy Sofa',
-      price: 80.00,
-      currency: '$',
-      ratingStarCount: 5
-     },
-     {id: 3,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'Bladen Sofa',
-      price: 60.00,
-      currency: '$',
-      ratingStarCount: 4
-     },
-     {id: 4,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'Ardenboro Sofa',
-      price: 80.00,
-      currency: '$',
-      ratingStarCount: 3
-     },
-     {id: 5,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'Daystar Sofa',
-      price: 99.00,
-      currency: '$',
-      ratingStarCount: 4
-     },
-     {id: 6,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'Trucker Accent Sofa',
-      price: 66.00,
-      currency: '$',
-      ratingStarCount: 5
-     },
-     {id: 7,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'FTrivia Accent Chair',
-      price: 90.00,
-      currency: '$',
-      ratingStarCount: 3
-     },
-     {id: 8,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'name13',
-      price: 94.00,
-      currency: '$',
-      ratingStarCount: 4
-     },
-     {id: 9,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'name14',
-      price: 93.00,
-      currency: '$',
-      ratingStarCount: 5
-     },
-     {id: 10,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'name15',
-      price: 54.00,
-      currency: '$',
-      ratingStarCount: 3
-     },
-     {id: 11,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'name16',
-      price: 44.00,
-      currency: '$',
-      ratingStarCount: 4
-     },
-     {id: 12,
-      imgSrc: '/images/productpage/lapbig.png' ,
-      productName:'name14',
-      price: 93.00,
-      currency: '$',
-      ratingStarCount: 5
-     }, 
-   
-  ]
+    {
+      id: "product2",
+      name: "Flying Drone",
+      image: "/images/productpage/lapsmall.png",
+      price: "$140.00",
+    },
+    {
+      id: "product3",
+      name: "Flying Drone",
+      image: "/images/productpage/lapsmall.png",
+      price: "$140.00",
+    },
+    {
+      id: "product4",
+      name: "Flying Drone",
+      image: "/images/productpage/lapsmall.png",
+      price: "$140.00",
+    },
+  ];
 
-const Product: React.FC = () => {
+  const productsGrid = [
+    {
+        id: 1,
+        name: "MacBook Pro",
+        image: "/images/productpage/lapbig.png",
+        price: "$90.00",
+        category: "lighters",
+        path: "/product/1",
+        badge: "sell",
+    },
+    {
+        id: 2,
+        name: "MacBook Pro",
+        image: "/images/productpage/lapbig.png",
+        price: "$90.00",
+        category: "lighters",
+        path: "/product/2",
+    },
+    {
+        id: 3,
+        name: "MacBook Pro",
+        image: "/images/productpage/lapbig.png",
+        price: "$90.00",
+        category: "rolling",
+        path: "3",
+        badge: "sell",
+    },
+    {
+        id: 4,
+        name: "MacBook Pro",
+        image: "/images/productpage/lapbig.png",
+        price: "$90.00",
+        category: "rolling",
+        path: "/product/4",
+    },
+    {
+        id: 5,
+        name: "MacBook Pro",
+        image: "/images/productpage/lapbig.png",
+        price: "$90.00",
+        category: "bongs",
+        path: "/product/5",
+        badge: "sell",
+    },
+    {
+        id: 6,
+        name: "MacBook Pro",
+        image: "/images/productpage/lapbig.png",
+        price: "$90.00",
+        category: "bongs",
+        path: "/product/5",
+        badge: "sell",
+    },
+    {
+        id: 7,
+        name: "MacBook Pro",
+        image: "/images/productpage/lapbig.png",
+        price: "$90.00",
+        category: "bongs",
+        path: "/product/5",
+        badge: "sell",
+    },
+    {
+        id: 8,
+        name: "MacBook Pro",
+        image: "/images/productpage/lapbig.png",
+        price: "$90.00",
+        category: "smoking",
+        path: "/product/5",
+        badge: "sell",
+    },
+    {
+        id: 9,
+        name: "MacBook Pro",
+        image: "/images/productpage/lapbig.png",
+        price: "$90.00",
+        category: "liquidgas",
+        path: "/product/5",
+        badge: "sell",
+    }
+];
 
-    const minPriceRef = useRef<HTMLInputElement>(null);
-    const maxPriceRef = useRef<HTMLInputElement>(null);
-    const minRangeRef = useRef<HTMLInputElement>(null);
-    const maxRangeRef = useRef<HTMLInputElement>(null);
-    const rangeRef = useRef<HTMLDivElement>(null);
-    const priceGap = 1000;
-  
-    useEffect(() => {
-      const handlePriceInput = (e: Event) => {
-        if (!minPriceRef.current || !maxPriceRef.current || !minRangeRef.current || !maxRangeRef.current || !rangeRef.current) {
-          return;
-        }
-  
-        const minPrice = parseInt(minPriceRef.current.value);
-        const maxPrice = parseInt(maxPriceRef.current.value);
-  
-        if (maxPrice - minPrice >= priceGap && maxPrice <= parseInt(maxRangeRef.current.max)) {
-          if ((e.target as HTMLInputElement).className.includes('input-min')) {
-            minRangeRef.current.value = minPrice.toString();
-            rangeRef.current.style.left = (minPrice / parseInt(minRangeRef.current.max)) * 100 + '%';
-          } else {
-            maxRangeRef.current.value = maxPrice.toString();
-            rangeRef.current.style.right = 100 - (maxPrice / parseInt(maxRangeRef.current.max)) * 100 + '%';
-          }
-        }
-      };
-  
-      const handleRangeInput = (e: Event) => {
-        if (!minPriceRef.current || !maxPriceRef.current || !minRangeRef.current || !maxRangeRef.current || !rangeRef.current) {
-          return;
-        }
-  
-        const minVal = parseInt(minRangeRef.current.value);
-        const maxVal = parseInt(maxRangeRef.current.value);
-  
-        if (maxVal - minVal < priceGap) {
-          if ((e.target as HTMLInputElement).className.includes('range-min')) {
-            minRangeRef.current.value = (maxVal - priceGap).toString();
-          } else {
-            maxRangeRef.current.value = (minVal + priceGap).toString();
-          }
-        } else {
-          minPriceRef.current.value = minVal.toString();
-          maxPriceRef.current.value = maxVal.toString();
-          rangeRef.current.style.left = (minVal / parseInt(minRangeRef.current.max)) * 100 + '%';
-          rangeRef.current.style.right = 100 - (maxVal / parseInt(maxRangeRef.current.max)) * 100 + '%';
-        }
-      };
-  
-      minPriceRef.current?.addEventListener('input', handlePriceInput);
-      maxPriceRef.current?.addEventListener('input', handlePriceInput);
-      minRangeRef.current?.addEventListener('input', handleRangeInput);
-      maxRangeRef.current?.addEventListener('input', handleRangeInput);
-  
-      return () => {
-        minPriceRef.current?.removeEventListener('input', handlePriceInput);
-        maxPriceRef.current?.removeEventListener('input', handlePriceInput);
-        minRangeRef.current?.removeEventListener('input', handleRangeInput);
-        maxRangeRef.current?.removeEventListener('input', handleRangeInput);
-      };
-    }, []);
-
-    const currentPage = 1;
-    const totalPages = 210; 
-    
   return (
-    <Layout >
-      <div className='text-black w-full flex font-Poppins bg-[#F8F8F8]'>
-        <div className='w-[25%] p-4 bg-white'>
-          <p className='font-bold text-lg pb-2 text-[#16384E] mb-4'>Search Products</p>
-          <div className="hidden lg:flex items-center mb-4">
-            
-            <input
-              type="text"
-              placeholder="Search Products..."
-              className="outline-none w-full bg-[#f1f1f1] font-[500] text-sm p-2 none repeat scroll 0 0]"
-            />
-            <CiSearch size={25} className="mr-2 text-gray-600 bg-[#dee2e6] h-9 w-9 p-1" />
+    <Layout>
+      <div>
+        <div
+          className="breadcrumb-area pt-205 breadcrumb-padding pb-210"
+          style={{
+            backgroundImage: "url(assets/img/aboutBanner.png)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+          }}
+        >
+          <div className="container-fluid">
+            <div
+              className="breadcrumb-content text-center"
+              style={{ marginTop: "-30px", marginBottom: "30px" }}
+            >
+              <h2>Our Products</h2>
+              <ul>
+                <li>
+                  <a href="#">home</a>
+                </li>
+                <li>Our Products</li>
+              </ul>
+            </div>
           </div>
-          <p className='font-bold text-lg  text-[#16384E] mt-10 mb-8'>Filter by Price</p>
-          
-          <div className=" mb-10">
-          <div className="price-input">
-            <div className="w-1/2">
-                <input type="number" ref={minPriceRef} className="input-min w-[100px]" placeholder="Min Price" />
-            </div>
-            <div className="w-1/2">
-            <input type="number" ref={maxPriceRef} className="input-max w-[100px]" placeholder="Max Price" />
-            </div>
-          </div>
-          <div className="slider mt-4 ">
-            <div className="progress" ref={rangeRef}></div>
-          </div>
-          <div className="range-input mt-2 mb-14">
-            <input type="range" ref={minRangeRef} className="range-min" min="0" max="10000" />
-            <input type="range" ref={maxRangeRef} className="range-max" min="0" max="10000" />
-          </div>
-          </div>
-            <div>
-            <p className='font-bold text-lg  text-[#16384E] mb-5'>Categories</p>
-            <div className='text-[#aaa] font-semibold pt-2 text-lg space-y-5 mb-10'>
-                <div className='flex justify-between'>
-                    <p>Accessories</p>
-                    <p> 4</p>
-                </div>
-                <div className='flex justify-between'>
-                    <p>Book </p>
-                    <p> 9</p>
-                </div>
-                <div className='flex justify-between'>
-                    <p>Clothing</p>
-                    <p> 5</p>
-                </div>
-                <div className='flex justify-between'>
-                    <p>Kids & Baby</p>
-                    <p> 4</p>
-                </div>  
-            </div>
-            </div>
-            <div className='pt-2 mb-10'>
-                <p className='font-bold text-lg pb-2 text-[#16384E] mb-4'>Color</p>
-                <div className='flex space-x-2'>
-                    <div className='bg-[black] rounded-full w-5 h-5'></div>
-                    <div className='bg-[#ff01f0] rounded-full w-5 h-5'></div>
-                    <div className='bg-[#3649ff] rounded-full w-5 h-5'></div>
-                    <div className='bg-[#00c0ff] rounded-full w-5 h-5'></div>
-                    <div className='bg-[#00ffae] rounded-full w-5 h-5'></div>
-                    <div className='bg-[#8a00ff] rounded-full w-5 h-5'></div>
-                </div>
-            </div>
-            <div className='pt-2 mb-8'>
-                <p className='font-bold text-lg pb-2 text-[#16384E] mb-4'>Size</p>
-                <div className='flex space-x-5 text-[#aaa] font-semibold'>
-                    <div>XL</div>
-                    <div>M</div>
-                    <div>L</div>
-                    <div>ML</div>
-                    <div>LM</div>
-                    
-                </div>
-            </div>
-            <div className='pt-2'>
-                <p className='font-bold text-lg pb-2 text-[#16384E] py-3'>Top Rated Products</p>
-                <div>
-                    <div className='flex my-5'>
-                        <div className=''>
-                        <img src='/images/productpage/watchsmall.png' alt=''  />
-                        </div>
-                        <div className='space-y-3 ms-4'>
-                            <p className='text-[#16384E] font-semibold'>Flying Drone</p>
-                            <div className='flex text-[#adb5bd]'>
-                                <MdOutlineStarBorder size={20} />
-                                <MdOutlineStarBorder size={20} />
-                                <MdOutlineStarBorder size={20} />
-                                <MdOutlineStarBorder size={20} />
-                                <MdOutlineStarBorder size={20} />
-                            </div>
-                            <p className='text-[#aaa] font-bold'>$140.00</p>
-                        </div>
-                    </div>
-                    <div className='flex my-5'>
-                        <div>
-                        <img src='/images/productpage/watchsmall.png' alt=''/>
-                        </div>
-                        <div className='space-y-3 ms-4'>
-                            <p className='text-[#16384E] font-semibold'>Flying Drone</p>
-                            <div className='flex text-[#adb5bd]'>
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                            </div>
-                            <p className='text-[#aaa] font-bold'>$140.00</p>
-                        </div>
-                    </div>
-                    <div className='flex my-5'>
-                        <div>
-                        <img src='/images/productpage/watchsmall.png' alt=''/>
-                        </div>
-                        <div className='space-y-3 ms-4'>
-                            <p className='text-[#16384E] font-semibold'>Flying Drone</p>
-                            <div className='flex text-[#adb5bd]'>
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                            </div>
-                            <p className='text-[#aaa] font-bold'>$140.00</p>
-                        </div>
-                    </div>
-                    <div  className='flex my-5'>
-                        <div>
-                        <img src='/images/productpage/watchsmall.png' alt=''/>
-                        </div>
-                        <div className='space-y-3 ms-4'>
-                            <p className='text-[#16384E] font-semibold'>Flying Drone</p>
-                            <div className='flex text-[#adb5bd]'>
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                                <MdOutlineStarBorder size={20}  />
-                            </div>
-                            <p className='text-[#aaa] font-bold'>$140.00</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
         </div>
-        <div className='w-[75%] p-4'>
-          <p className='text-center text-2xl font-bold pb-10'>JBL Product Company</p>
-            <div className='w-full flex  px-10 bg-white'>
-                <div className='w-[30%]'>
-                    <img src="/images/productpage/girl.png" alt="" width={300} height={300} />
+        <div className="shop-page-wrapper shop-page-padding ptb-100">
+          <div className="container-fluid">
+            <div className="row gy-5">
+              <div className="col-lg-3 order-2 order-lg-1">
+                <div className="shop-sidebar mr-50">
+                  <div className="sidebar-widget mb-50">
+                    <h3 className="sidebar-title">Search Products</h3>
+                    <div className="sidebar-search">
+                      <form action="#">
+                        <input
+                          placeholder="Search Products..."
+                          type="text"
+                        ></input>
+                        <button>
+                          <i className="ti-search"></i>
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                  <div className="sidebar-widget mb-40">
+                    <h3 className="sidebar-title">Filter by Price</h3>
+                    <div className="price_filter">
+                      <div id="slider-range"></div>
+                      <div className="price_slider_amount">
+                        <div className="label-input">
+                          <label>price : </label>
+                          <input
+                            type="text"
+                            id="amount"
+                            name="price"
+                            placeholder="Add Your Price"
+                          />
+                        </div>
+                        <button type="button">Filter</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="sidebar-widget mb-45">
+                    <h3 className="sidebar-title">Categories</h3>
+                    <div className="sidebar-categories">
+                      <ul>
+                        <li>
+                          <a href="#">
+                            Accessories <span>4</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            Book <span>9</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            Clothing <span>5</span>{" "}
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            Homelife <span>3</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                            Kids & Baby <span>4</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="sidebar-widget sidebar-overflow mb-45">
+                    <h3 className="sidebar-title">color</h3>
+                    <div className="product-color">
+                      <ul>
+                        <li className="red">b</li>
+                        <li className="pink">p</li>
+                        <li className="blue">b</li>
+                        <li className="sky">b</li>
+                        <li className="green">y</li>
+                        <li className="purple">g</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="sidebar-widget mb-40">
+                    <h3 className="sidebar-title">size</h3>
+                    <div className="product-size">
+                      <ul>
+                        <li>
+                          <a href="#">xl</a>
+                        </li>
+                        <li>
+                          <a href="#">m</a>
+                        </li>
+                        <li>
+                          <a href="#">l</a>
+                        </li>
+                        <li>
+                          <a href="#">ml</a>
+                        </li>
+                        <li>
+                          <a href="#">lm</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="sidebar-widget mb-50">
+                    <h3 className="sidebar-title">Top rated products</h3>
+                    <div className="sidebar-top-rated-all">
+                      {productsGrid.map((product, index) => (
+                        <div
+                          className="sidebar-top-rated mb-30"
+                          key={product.id}
+                        >
+                          <div className="single-top-rated">
+                            <div className="top-rated-img">
+                              <Link href={`/product/${product.id}`}>
+                                <img src={product.image} alt={product.name} width={91} height={88} />
+                              </Link>
+                            </div>
+                            <div className="top-rated-text">
+                              <h4>
+                                <Link href={`/product/${product.id}`}>
+                                  {product.name}
+                                </Link>
+                              </h4>
+                              <div className="top-rated-rating">
+                                <ul>
+                                  {[...Array(5)].map((star, i) => (
+                                    <li key={i}>
+                                      <i className="pe-7s-star"></i>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                              <span>{product.price}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <div className='w-[70%] flex flex-col items-start justify-center ps-10'>
-                    <img src="/images/productpage/jbl.png" alt="" width={70} height={70} />
-                    <p className='mt-5 text-[#7E8F9A]'>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
-                        Velit officia consequat duis enim velit mollit. 
-                        Exercitation veniam consequat sunt nostrud amet.
+              </div>
+              <div className="col-lg-9 order-1 order-lg-2">
+                <div className="shop-product-wrapper res-xl">
+                  <div className="shop-bar-area">
+                    <div className="shop-bar pb-60">
+                      <div className="shop-found-selector">
+                        <div className="shop-found">
+                          <p>
+                            <span>23</span> Product Found of <span>50</span>
+                          </p>
+                        </div>
+                        <div className="shop-selector">
+                          <label>Sort By : </label>
+                          <select name="select">
+                            <option value="">Default</option>
+                            <option value="">A to Z</option>
+                            <option value=""> Z to A</option>
+                            <option value="">In stock</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className="shop-filter-tab">
+                        <div className="shop-tab nav" role={"tablist"}>
+                          {/* <a
+                            className="active"
+                            href="#grid-sidebar3"
+                            data-bs-toggle="tab"
+                            role="tab"
+                            aria-selected="false"
+                          >
+                            <i className="ti-layout-grid4-alt"></i>
+                          </a> */}
+                          {/* <a
+                            href="#grid-sidebar4"
+                            data-bs-toggle="tab"
+                            role="tab"
+                            aria-selected="true"
+                          >
+                            <i className="ti-menu"></i>
+                          </a> */}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="shop-product-content tab-content">
+                      {/* <div
+                                                id="grid-sidebar3"
+                                                className="tab-pane fade active show"
+                                            >
+                                                <div className="row">
+                                                    <div className="col-md-6 col-xl-4">
+                                                        <div className="product-wrapper mb-30">
+                                                            <div className="product-img">
+                                                                <a href="#">
+                                                                    <img
+                                                                        src="assets/img/product/fashion-colorful/1.jpg"
+                                                                        alt=""
+                                                                    ></img>
+                                                                </a>
+                                                                <span>hot</span>
+                                                                <div className="product-action">
+                                                                    <a
+                                                                        className="animate-left"
+                                                                        title="Wishlist"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-like"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-top"
+                                                                        title="Add To Cart"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-cart"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-right"
+                                                                        title="Quick View"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#exampleModal"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-look"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div className="product-content">
+                                                                <h4>
+                                                                    <a href="#"> Dagger Smart Trousers </a>
+                                                                </h4>
+                                                                <span>$115.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6 col-xl-4">
+                                                        <div className="product-wrapper mb-30">
+                                                            <div className="product-img">
+                                                                <a href="#">
+                                                                    <img
+                                                                        src="assets/img/product/fashion-colorful/2.jpg"
+                                                                        alt=""
+                                                                    ></img>
+                                                                </a>
+                                                                <div className="product-action">
+                                                                    <a
+                                                                        className="animate-left"
+                                                                        title="Wishlist"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-like"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-top"
+                                                                        title="Add To Cart"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-cart"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-right"
+                                                                        title="Quick View"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#exampleModal"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-look"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div className="product-content">
+                                                                <h4>
+                                                                    <a href="#">Homme Tapered Smart </a>
+                                                                </h4>
+                                                                <span>$115.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6 col-xl-4">
+                                                        <div className="product-wrapper mb-30">
+                                                            <div className="product-img">
+                                                                <a href="#">
+                                                                    <img
+                                                                        src="assets/img/product/fashion-colorful/3.jpg"
+                                                                        alt=""
+                                                                    ></img>
+                                                                </a>
+                                                                <span>new</span>
+                                                                <div className="product-action">
+                                                                    <a
+                                                                        className="animate-left"
+                                                                        title="Wishlist"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-like"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-top"
+                                                                        title="Add To Cart"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-cart"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-right"
+                                                                        title="Quick View"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#exampleModal"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-look"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div className="product-content">
+                                                                <h4>
+                                                                    <a href="#">Navy Bird Print </a>
+                                                                </h4>
+                                                                <span>$115.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6 col-xl-4">
+                                                        <div className="product-wrapper mb-30">
+                                                            <div className="product-img">
+                                                                <a href="#">
+                                                                    <img
+                                                                        src="assets/img/product/fashion-colorful/4.jpg"
+                                                                        alt=""
+                                                                    ></img>
+                                                                </a>
+                                                                <div className="product-action">
+                                                                    <a
+                                                                        className="animate-left"
+                                                                        title="Wishlist"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-like"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-top"
+                                                                        title="Add To Cart"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-cart"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-right"
+                                                                        title="Quick View"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#exampleModal"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-look"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div className="product-content">
+                                                                <h4>
+                                                                    <a href="#">Jacket Stonewash </a>
+                                                                </h4>
+                                                                <span>$115.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6 col-xl-4">
+                                                        <div className="product-wrapper mb-30">
+                                                            <div className="product-img">
+                                                                <a href="#">
+                                                                    <img
+                                                                        src="assets/img/product/fashion-colorful/5.jpg"
+                                                                        alt=""
+                                                                    ></img>
+                                                                </a>
+                                                                <div className="product-action">
+                                                                    <a
+                                                                        className="animate-left"
+                                                                        title="Wishlist"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-like"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-top"
+                                                                        title="Add To Cart"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-cart"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-right"
+                                                                        title="Quick View"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#exampleModal"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-look"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div className="product-content">
+                                                                <h4>
+                                                                    <a href="#">Skinny Jeans Terry </a>
+                                                                </h4>
+                                                                <span>$115.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="col-md-6 col-xl-4">
+                                                        <div className="product-wrapper mb-30">
+                                                            <div className="product-img">
+                                                                <a href="#">
+                                                                    <img
+                                                                        src="assets/img/product/fashion-colorful/3.jpg"
+                                                                        alt=""
+                                                                    ></img>
+                                                                </a>
+                                                                <span>sell</span>
+                                                                <div className="product-action">
+                                                                    <a
+                                                                        className="animate-left"
+                                                                        title="Wishlist"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-like"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-top"
+                                                                        title="Add To Cart"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-cart"></i>
+                                                                    </a>
+                                                                    <a
+                                                                        className="animate-right"
+                                                                        title="Quick View"
+                                                                        data-bs-toggle="modal"
+                                                                        data-bs-target="#exampleModal"
+                                                                        href="#"
+                                                                    >
+                                                                        <i className="pe-7s-look"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div className="product-content">
+                                                                <h4>
+                                                                    <a href="#">Black Faux Suede </a>
+                                                                </h4>
+                                                                <span>$115.00</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> */}
+                      <div
+                        id="grid-sidebar3"
+                        className="tab-pane fade active show"
+                      >
+                       <div className="row">
+      {productsGrid.map((product) => (
+        <div key={product.id} className="col-md-6 col-xl-4">
+          <div className="product-wrapper mb-30">
+            <div className="product-img">
+              <Link href={`/product/${product.id}`}>
+                <img src={product.image} alt={product.name} />
+              </Link>
+              {product.badge && <span>{product.badge}</span>}
+              <div className="product-action">
+                <Link className="animate-left" title="Wishlist" href="#">
+                  <i className="pe-7s-like"></i>
+                </Link>
+                <Link className="animate-top" title="Add To Cart" href="#">
+                  <i className="pe-7s-cart"></i>
+                </Link>
+                <Link className="animate-right" title="Quick View" href="#">
+                  <i className="pe-7s-look"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="product-content">
+              <h4>
+                <Link href={`/product/${product.id}`}>{product.name}</Link>
+              </h4>
+              <span>{product.price}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+                      </div>
+                      <div id="grid-sidebar4" className="tab-pane fade">
+                        <div className="row">
+                          <div className="col-lg-12 col-xl-6">
+                            <div className="product-wrapper mb-30 single-product-list product-list-right-pr mb-60">
+                              <div className="product-img list-img-width">
+                                <a href="#">
+                                  <img
+                                    src="assets/img/product/fashion-colorful/1.jpg"
+                                    alt=""
+                                  ></img>
+                                </a>
+                                <span>hot</span>
+                                <div className="product-action-list-style">
+                                  <a
+                                    className="animate-right"
+                                    title="Quick View"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    href="#"
+                                  >
+                                    <i className="pe-7s-look"></i>
+                                  </a>
+                                </div>
+                              </div>
+                              <div className="product-content-list">
+                                <div className="product-list-info">
+                                  <h4>
+                                    <a href="#"> Dagger Smart Trousers </a>
+                                  </h4>
+                                  <span>$150.00</span>
+                                  <p>
+                                    Lorem ipsum dolor sit amet, mana consectetur
+                                    adipisicing elit, sed do eiusmod tempor
+                                    labore.{" "}
+                                  </p>
+                                </div>
+                                <div className="product-list-cart-wishlist">
+                                  <div className="product-list-cart">
+                                    <a
+                                      className="btn-hover list-btn-style"
+                                      href="#"
+                                    >
+                                      add to cart
+                                    </a>
+                                  </div>
+                                  <div className="product-list-wishlist">
+                                    <a
+                                      className="btn-hover list-btn-wishlist"
+                                      href="#"
+                                    >
+                                      <i className="pe-7s-like"></i>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-lg-12 col-xl-6">
+                            <div className="product-wrapper mb-30 single-product-list product-list-right-pr mb-60">
+                              <div className="product-img list-img-width">
+                                <a href="#">
+                                  <img
+                                    src="assets/img/product/fashion-colorful/2.jpg"
+                                    alt=""
+                                  ></img>
+                                </a>
+                                <div className="product-action-list-style">
+                                  <a
+                                    className="animate-right"
+                                    title="Quick View"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    href="#"
+                                  >
+                                    <i className="pe-7s-look"></i>
+                                  </a>
+                                </div>
+                              </div>
+                              <div className="product-content-list">
+                                <div className="product-list-info">
+                                  <h4>
+                                    <a href="#">Homme Tapered Smart </a>
+                                  </h4>
+                                  <span>$180.00</span>
+                                  <p>
+                                    Lorem ipsum dolor sit amet, mana consectetur
+                                    adipisicing elit, sed do eiusmod tempor
+                                    labore.{" "}
+                                  </p>
+                                </div>
+                                <div className="product-list-cart-wishlist">
+                                  <div className="product-list-cart">
+                                    <a
+                                      className="btn-hover list-btn-style"
+                                      href="#"
+                                    >
+                                      add to cart
+                                    </a>
+                                  </div>
+                                  <div className="product-list-wishlist">
+                                    <a
+                                      className="btn-hover list-btn-wishlist"
+                                      href="#"
+                                    >
+                                      <i className="pe-7s-like"></i>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-lg-12 col-xl-6">
+                            <div className="product-wrapper mb-30 single-product-list product-list-right-pr mb-60">
+                              <div className="product-img list-img-width">
+                                <a href="#">
+                                  <img
+                                    src="assets/img/product/fashion-colorful/3.jpg"
+                                    alt=""
+                                  ></img>
+                                </a>
+                                <div className="product-action-list-style">
+                                  <a
+                                    className="animate-right"
+                                    title="Quick View"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    href="#"
+                                  >
+                                    <i className="pe-7s-look"></i>
+                                  </a>
+                                </div>
+                              </div>
+                              <div className="product-content-list">
+                                <div className="product-list-info">
+                                  <h4>
+                                    <a href="#">Navy Bird Print </a>
+                                  </h4>
+                                  <span>$130.00</span>
+                                  <p>
+                                    Lorem ipsum dolor sit amet, mana consectetur
+                                    adipisicing elit, sed do eiusmod tempor
+                                    labore.{" "}
+                                  </p>
+                                </div>
+                                <div className="product-list-cart-wishlist">
+                                  <div className="product-list-cart">
+                                    <a
+                                      className="btn-hover list-btn-style"
+                                      href="#"
+                                    >
+                                      add to cart
+                                    </a>
+                                  </div>
+                                  <div className="product-list-wishlist">
+                                    <a
+                                      className="btn-hover list-btn-wishlist"
+                                      href="#"
+                                    >
+                                      <i className="pe-7s-like"></i>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-lg-12 col-xl-6">
+                            <div className="product-wrapper mb-30 single-product-list product-list-right-pr mb-60">
+                              <div className="product-img list-img-width">
+                                <a href="#">
+                                  <img
+                                    src="assets/img/product/fashion-colorful/4.jpg"
+                                    alt=""
+                                  ></img>
+                                </a>
+                                <span>new</span>
+                                <div className="product-action-list-style">
+                                  <a
+                                    className="animate-right"
+                                    title="Quick View"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    href="#"
+                                  >
+                                    <i className="pe-7s-look"></i>
+                                  </a>
+                                </div>
+                              </div>
+                              <div className="product-content-list">
+                                <div className="product-list-info">
+                                  <h4>
+                                    <a href="#">Skinny Jeans Terry </a>
+                                  </h4>
+                                  <span>$120.00</span>
+                                  <p>
+                                    Lorem ipsum dolor sit amet, mana consectetur
+                                    adipisicing elit, sed do eiusmod tempor
+                                    labore.{" "}
+                                  </p>
+                                </div>
+                                <div className="product-list-cart-wishlist">
+                                  <div className="product-list-cart">
+                                    <a
+                                      className="btn-hover list-btn-style"
+                                      href="#"
+                                    >
+                                      add to cart
+                                    </a>
+                                  </div>
+                                  <div className="product-list-wishlist">
+                                    <a
+                                      className="btn-hover list-btn-wishlist"
+                                      href="#"
+                                    >
+                                      <i className="pe-7s-like"></i>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-lg-12 col-xl-6">
+                            <div className="product-wrapper mb-30 single-product-list product-list-right-pr mb-60">
+                              <div className="product-img list-img-width">
+                                <a href="#">
+                                  <img
+                                    src="assets/img/product/fashion-colorful/5.jpg"
+                                    alt=""
+                                  ></img>
+                                </a>
+                                <span>hot</span>
+                                <div className="product-action-list-style">
+                                  <a
+                                    className="animate-right"
+                                    title="Quick View"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    href="#"
+                                  >
+                                    <i className="pe-7s-look"></i>
+                                  </a>
+                                </div>
+                              </div>
+                              <div className="product-content-list">
+                                <div className="product-list-info">
+                                  <h4>
+                                    <a href="#">Black Faux Suede </a>
+                                  </h4>
+                                  <span>$170.00</span>
+                                  <p>
+                                    Lorem ipsum dolor sit amet, mana consectetur
+                                    adipisicing elit, sed do eiusmod tempor
+                                    labore.{" "}
+                                  </p>
+                                </div>
+                                <div className="product-list-cart-wishlist">
+                                  <div className="product-list-cart">
+                                    <a
+                                      className="btn-hover list-btn-style"
+                                      href="#"
+                                    >
+                                      add to cart
+                                    </a>
+                                  </div>
+                                  <div className="product-list-wishlist">
+                                    <a
+                                      className="btn-hover list-btn-wishlist"
+                                      href="#"
+                                    >
+                                      <i className="pe-7s-like"></i>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="col-lg-12 col-xl-6">
+                            <div className="product-wrapper mb-30 single-product-list product-list-right-pr mb-60">
+                              <div className="product-img list-img-width">
+                                <a href="#">
+                                  <img
+                                    src="assets/img/product/fashion-colorful/1.jpg"
+                                    alt=""
+                                  ></img>
+                                </a>
+                                <div className="product-action-list-style">
+                                  <a
+                                    className="animate-right"
+                                    title="Quick View"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal"
+                                    href="#"
+                                  >
+                                    <i className="pe-7s-look"></i>
+                                  </a>
+                                </div>
+                              </div>
+                              <div className="product-content-list">
+                                <div className="product-list-info">
+                                  <h4>
+                                    <a href="#">Jacket Stonewash </a>
+                                  </h4>
+                                  <span>$190.00</span>
+                                  <p>
+                                    Lorem ipsum dolor sit amet, mana consectetur
+                                    adipisicing elit, sed do eiusmod tempor
+                                    labore.{" "}
+                                  </p>
+                                </div>
+                                <div className="product-list-cart-wishlist">
+                                  <div className="product-list-cart">
+                                    <a
+                                      className="btn-hover list-btn-style"
+                                      href="#"
+                                    >
+                                      add to cart
+                                    </a>
+                                  </div>
+                                  <div className="product-list-wishlist">
+                                    <a
+                                      className="btn-hover list-btn-wishlist"
+                                      href="#"
+                                    >
+                                      <i className="pe-7s-like"></i>
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="pagination-style mt-50 text-center">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <i className="ti-angle-left"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">1</a>
+                    </li>
+                    <li>
+                      <a href="#">2</a>
+                    </li>
+                    <li>
+                      <a href="#">...</a>
+                    </li>
+                    <li>
+                      <a href="#">19</a>
+                    </li>
+                    <li className="active">
+                      <a href="#">
+                        <i className="ti-angle-right"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex={-1}
+          role="dialog"
+          aria-hidden="true"
+        >
+          <button
+            type="button"
+            className="close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <span className="pe-7s-close" aria-hidden="true"></span>
+          </button>
+          <div className="modal-dialog modal-quickview-width" role="document">
+            <div className="modal-content">
+              <div className="modal-body">
+                <div className="qwick-view-left">
+                  <div className="quick-view-learg-img">
+                    <div className="quick-view-tab-content tab-content">
+                      <div
+                        className="tab-pane active show fade"
+                        id="modal1"
+                        role="tabpanel"
+                      >
+                        <img src="assets/img/quick-view/l1.jpg" alt=""></img>
+                      </div>
+                      <div
+                        className="tab-pane fade"
+                        id="modal2"
+                        role="tabpanel"
+                      >
+                        <img src="assets/img/quick-view/l2.jpg" alt=""></img>
+                      </div>
+                      <div
+                        className="tab-pane fade"
+                        id="modal3"
+                        role="tabpanel"
+                      >
+                        <img src="assets/img/quick-view/l3.jpg" alt=""></img>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="quick-view-list nav" role="tablist">
+                    <a
+                      className="active"
+                      href="#modal1"
+                      data-bs-toggle="tab"
+                      role="tab"
+                    >
+                      <img src="assets/img/quick-view/s1.jpg" alt=""></img>
+                    </a>
+                    <a href="#modal2" data-bs-toggle="tab" role="tab">
+                      <img src="assets/img/quick-view/s2.jpg" alt=""></img>
+                    </a>
+                    <a href="#modal3" data-bs-toggle="tab" role="tab">
+                      <img src="assets/img/quick-view/s3.jpg" alt=""></img>
+                    </a>
+                  </div>
+                </div>
+                <div className="qwick-view-right">
+                  <div className="qwick-view-content">
+                    <h3>Handcrafted Supper Mug</h3>
+                    <div className="price">
+                      <span className="new">$90.00</span>
+                      <span className="old">$120.00 </span>
+                    </div>
+                    <div className="rating-number">
+                      <div className="quick-view-rating">
+                        <i className="pe-7s-star"></i>
+                        <i className="pe-7s-star"></i>
+                        <i className="pe-7s-star"></i>
+                        <i className="pe-7s-star"></i>
+                        <i className="pe-7s-star"></i>
+                      </div>
+                      <div className="quick-view-number">
+                        <span>2 Ratting (S)</span>
+                      </div>
+                    </div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adip elit, sed do
+                      tempor incididun ut labore et dolore magna aliqua. Ut enim
+                      ad mi , quis nostrud veniam exercitation .
                     </p>
+                    <div className="quick-view-select">
+                      <div className="select-option-part">
+                        <label>Size*</label>
+                        <select className="select">
+                          <option value="">- Please Select -</option>
+                          <option value="">900</option>
+                          <option value="">700</option>
+                        </select>
+                      </div>
+                      <div className="select-option-part">
+                        <label>Color*</label>
+                        <select className="select">
+                          <option value="">- Please Select -</option>
+                          <option value="">orange</option>
+                          <option value="">pink</option>
+                          <option value="">yellow</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="quickview-plus-minus">
+                      <div className="cart-plus-minus">
+                        <input
+                          type="text"
+                          value="02"
+                          name="qtybutton"
+                          className="cart-plus-minus-box"
+                        ></input>
+                      </div>
+                      <div className="quickview-btn-cart">
+                        <a className="btn-hover-black" href="#">
+                          add to cart
+                        </a>
+                      </div>
+                      <div className="quickview-btn-wishlist">
+                        <a className="btn-hover" href="#">
+                          <i className="pe-7s-like"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-            <div className=" grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-5">
-                
-                {products.slice(0, 12).map((product) => (
-                <ProductItem 
-                    key={product.id}
-                    imgSrc={product.imgSrc}
-                    productName={product.productName}
-                    price={product.price}
-                    currency={product.currency}
-                    ratingStarCount={product.ratingStarCount}
-                    />
-                ))}
-                
-            </div>
-            {/*
-            <div className='flex  text-[#353535] py-10 px-4  my-5  bg-white justify-between'>
-                <div className='flex'>
-                    <div className='flex items-center'>
-                        <img src="/images/productpage/shipping.png" alt="" />
-                    </div>
-                    <div className='ms-4'>
-                        <p className='text-sm font-bold '>FREE SHIPPING</p>
-                        <p className='text-xs'>Free shipping on all US Dollars</p>
-                    </div>
-                </div>
-                <div className='flex  text-[#353535]'>
-                    <div className='flex items-center'>
-                        <img src="/images/productpage/support.png" alt="" />
-                    </div>
-                    <div className='ms-4'>
-                        <p className='text-sm font-bold '>SUPPORT 24/7</p>
-                        <p className='text-xs'>We support 24 hours a day</p>
-                    </div>
-                </div>
-                <div className='flex text-[#353535]'>
-                    <div className='flex items-center'>
-                        <img src="/images/productpage/gift.png" alt="" />
-                    </div>
-                    <div className='ms-4'>
-                        <p className='text-sm font-bold '>GIFT CARDS</p>
-                        <p className='text-xs'>Give perfect gift</p>
-                    </div>
-                </div>
-                <div className='flex text-[#353535]'>
-                    <div className='flex items-center'>
-                        <img src="/images/productpage/payment.png" alt="" />
-                    </div>
-                    <div className='ms-4'>
-                        <p className='text-sm font-bold '>PAYMENT 100%</p>
-                        <p className='text-xs'>Payment 100% secure</p>
-                    </div>
-                </div>
-            </div>
-            */}
-            <div className="pagination-style">
-                <ul>
-                <li>
-                    <a href="#">
-                    <FaAngleLeft />
-                    </a>
-                </li>
-                <li>
-                    <a href="#">1</a>
-                </li>
-                <li>
-                    <a href="#">2</a>
-                </li>
-                <li>
-                    <a href="#">...</a>
-                </li>
-                <li>
-                    <a href="#">19</a>
-                </li>
-                <li className="active">
-                    <a href="#">
-                    <FaAngleRight />
-                    </a>
-                </li>
-                </ul>
-            </div>
+          </div>
         </div>
-
-    
-    
+        <div
+          className="modal fade"
+          id="exampleCompare"
+          tabIndex={-1}
+          role="dialog"
+          aria-hidden="true"
+        >
+          <button
+            type="button"
+            className="close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <span className="pe-7s-close" aria-hidden="true"></span>
+          </button>
+          <div className="modal-dialog modal-compare-width" role="document">
+            <div className="modal-content">
+              <div className="modal-body">
+                <form action="#">
+                  <div className="table-content compare-style table-responsive">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th>
+                            <a href="#">
+                              Remove <span>x</span>
+                            </a>
+                            <img src="assets/img/cart/4.jpg" alt=""></img>
+                            <p>Blush Sequin Top </p>
+                            <span>$75.99</span>
+                            <a className="compare-btn" href="#">
+                              Add to cart
+                            </a>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="compare-title">
+                            <h4>Description </h4>
+                          </td>
+                          <td className="compare-dec compare-common">
+                            <p>
+                              Lorem Ipsum is simply dummy text of the printing
+                              and typesetting industry. Lorem Ipsum has beenin
+                              the stand ard dummy text ever since the 1500s,
+                              when an unknown printer took a galley
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="compare-title">
+                            <h4>Sku </h4>
+                          </td>
+                          <td className="product-none compare-common">
+                            <p>-</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="compare-title">
+                            <h4>Availability </h4>
+                          </td>
+                          <td className="compare-stock compare-common">
+                            <p>In stock</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="compare-title">
+                            <h4>Weight </h4>
+                          </td>
+                          <td className="compare-none compare-common">
+                            <p>-</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="compare-title">
+                            <h4>Dimensions </h4>
+                          </td>
+                          <td className="compare-stock compare-common">
+                            <p>N/A</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="compare-title">
+                            <h4>brand </h4>
+                          </td>
+                          <td className="compare-brand compare-common">
+                            <p>HasTech</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="compare-title">
+                            <h4>color </h4>
+                          </td>
+                          <td className="compare-color compare-common">
+                            <p>
+                              Grey, Light Yellow, Green, Blue, Purple, Black{" "}
+                            </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="compare-title">
+                            <h4>size </h4>
+                          </td>
+                          <td className="compare-size compare-common">
+                            <p>XS, S, M, L, XL, XXL </p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="compare-title"></td>
+                          <td className="compare-price compare-common">
+                            <p>$75.99 </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;
