@@ -6,89 +6,80 @@ import Script from "next/script";
 import Head from "next/head";
 import Link from "next/link";
 
+
 export default function Home() {
     const productsGrid = [
+        { id: 1, name: "MacBook Pro 0", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Laptop", path: "/product/1", badge: "sell" },
+        { id: 2, name: "MacBook Pro 1", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Laptop", path: "/product/2" },
+        { id: 3, name: "MacBook Pro 2", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Laptop", path: "/product/3", badge: "sell" },
+        { id: 4, name: "MacBook Pro 3", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Laptop", path: "/product/4" },
+        { id: 5, name: "MacBook Pro 4", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Laptop", path: "/product/5", badge: "sell" },
+        { id: 6, name: "MacBook Pro 5", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Watches", path: "/product/6", badge: "sell" },
+        { id: 7, name: "MacBook Pro 6", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Watches", path: "/product/7", badge: "sell" },
+        { id: 8, name: "MacBook Pro 7", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Watches", path: "/product/8", badge: "sell" },
+        { id: 9, name: "MacBook Pro 8", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Watches", path: "/product/9", badge: "sell" },
+        { id: 10, name: "MacBook Pro 9", image: "/images/productpage/lapbig.png", price: "$90.00", category: "charger", path: "/product/5", badge: "sell" },
+        { id: 11, name: "MacBook Pro 10", image: "/images/productpage/lapbig.png", price: "$90.00", category: "headset", path: "/product/6", badge: "sell" },
+        { id: 12, name: "MacBook Pro 11", image: "/images/productpage/lapbig.png", price: "$90.00", category: "headset", path: "/product/7", badge: "sell" },
+        { id: 13, name: "MacBook Pro 12", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Handfree", path: "/product/8", badge: "sell" },
+        { id: 14, name: "MacBook Pro 13", image: "/images/productpage/lapbig.png", price: "$90.00", category: "Handfree", path: "/product/9", badge: "sell" }
+    ];
+
+    const categories = [
         {
             id: 1,
-            name: "MacBook Pro",
-            image: "/images/productpage/lapbig.png",
-            price: "$90.00",
-            category: "lighters",
-            path: "/product/1",
-            badge: "sell",
+            name: "All Products",
+            color: '#F08DA9',
+            link: '/'
         },
         {
             id: 2,
-            name: "MacBook Pro",
-            image: "/images/productpage/lapbig.png",
-            price: "$90.00",
-            category: "lighters",
-            path: "/product/2",
+            name: "Watches",
+            color: '#FEE3B8',
+            link: '/'
         },
         {
             id: 3,
-            name: "MacBook Pro",
-            image: "/images/productpage/lapbig.png",
-            price: "$90.00",
-            category: "rolling",
-            path: "3",
-            badge: "sell",
+            name: "Speaker",
+            color: '#BCE4E3',
+            link: '/'
         },
         {
             id: 4,
-            name: "MacBook Pro",
-            image: "/images/productpage/lapbig.png",
-            price: "$90.00",
-            category: "rolling",
-            path: "/product/4",
+            name: "Laptop",
+            color: '#B9B2DC',
+            link: '/'
         },
         {
             id: 5,
-            name: "MacBook Pro",
-            image: "/images/productpage/lapbig.png",
-            price: "$90.00",
-            category: "bongs",
-            path: "/product/5",
-            badge: "sell",
+            name: "Charger ",
+            color: '#A6DAE8',
+            link: '/'
         },
         {
             id: 6,
-            name: "MacBook Pro",
-            image: "/images/productpage/lapbig.png",
-            price: "$90.00",
-            category: "bongs",
-            path: "/product/5",
-            badge: "sell",
+            name: "Headset",
+            color: '#EBC8D5',
+            link: '/'
         },
         {
             id: 7,
-            name: "MacBook Pro",
-            image: "/images/productpage/lapbig.png",
-            price: "$90.00",
-            category: "bongs",
-            path: "/product/5",
-            badge: "sell",
+            name: "Handfree",
+            color: '#A99B87',
+            link: '/'
         },
         {
             id: 8,
-            name: "MacBook Pro",
-            image: "/images/productpage/lapbig.png",
-            price: "$90.00",
-            category: "smoking",
-            path: "/product/5",
-            badge: "sell",
+            name: "Laptop",
+            color: '#CFCFC5',
+            link: '/'
         },
         {
             id: 9,
-            name: "MacBook Pro",
-            image: "/images/productpage/lapbig.png",
-            price: "$90.00",
-            category: "liquidgas",
-            path: "/product/5",
-            badge: "sell",
-        }
-    ];
-
+            name: "Charger ",
+            color: '#B7C1E9',
+            link: '/'
+        }];
 
     return (
         <>
@@ -175,13 +166,40 @@ export default function Home() {
 
                     <div className="popular-product-area wrapper-padding-3 pt-115 pb-115">
                         <div className="container-fluid">
-                            <div className="section-title-6 text-center mb-50">
-                                <h2>Popular Product</h2>
+                            <div className="section-title-6 text-center mb-72">
                                 <p>
+                                    It makes you Perfect
+                                </p>
+                                <h2 className="mb-0">ASSA PRODUCTS</h2>
+                                <p>
+                                    Sri Lanka Biggest Electronic Collection
+                                </p>
+                            </div>
+
+
+                            <div className="product-tab-list text-center mb-65 nav" role="tablist">
+                                {categories.map((category) => (
+                                    <a
+                                        key={category.id}
+                                        href={category.link}
+                                        role="tab"
+                                        style={{ backgroundColor: category.color, padding: '10px 20px', borderRadius: '6px', margin: '8px' }}
+                                    >
+                                        <h4 className="" style={{ textTransform: 'none', color: '#1C274C', fontWeight: 600 }}>
+                                            {category.name}
+                                        </h4>
+                                    </a>
+                                ))}
+                            </div>
+
+
+                            <div className="section-title-6 text-center mb-50">
+                                <h2>Popular Products</h2>
+                                {/* <p>
                                     Lorem Ipsum is simply dummy text of the printing and
                                     typesetting industry. Lorem Ipsum has been the industry`s
                                     standard dummy text
-                                </p>
+                                </p> */}
                             </div>
 
                             <div className="product-style">
@@ -190,7 +208,7 @@ export default function Home() {
                                         <div key={product.id} className="product-wrapper">
                                             <div className="product-img">
                                                 <Link href={`/product/${product.id}`}>
-                                                    <img src={product.image} alt={product.name} />
+                                                    <img src={product.image} alt={product.name} style={{ backgroundColor: '#F8F8F8' }} className="mb-3" />
                                                 </Link>
                                                 <div className="product-action">
                                                     <Link
@@ -231,77 +249,102 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="discount-area pt-70 pb-120">
-                        <div className="container">
-                            <div className="row">
-                                <div className="ms-auto col-lg-7">
-                                    <div className="discount-img pl-70">
-                                        <img src="/images/productpage/lapbig.png" alt="" />
-                                    </div>
-                                </div>
-                                <div className="col-lg-5">
-                                    <div className="discount-details-wrapper">
-                                        <h5>Verified quality</h5>
-                                        <p>
-                                            Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry.
-                                        </p>
-                                        <h2>
-                                            Summer Discount <br />
-                                            Up to 30%
-                                        </h2>
-                                        <p className="discount-peragraph">
-                                            It is a long established fact that a reader will be
-                                            distracted by the readable content of a page when looking
-                                            at its layout.
-                                        </p>
-                                        <a
-                                            className="discount-btn btn-hover"
-                                            href="product-details.html"
-                                        >
-                                            Buy Now
-                                        </a>
-                                    </div>
+                    <div className="popular-product-area wrapper-padding-3 pt-115 pb-115">
+                        <div className="container-fluid">
+                            <div className="section-title-6 text-start mb-50">
+                                <h2>Latest Products</h2>
+                            </div>
+
+                            <div className="product-style">
+                                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+                                    {productsGrid.slice(0, 4).map((product) => (
+                                        <div key={product.id} className="product-wrapper">
+                                            <div className="product-img">
+                                                <Link href={`/product/${product.id}`} >
+                                                    <img src={product.image} alt={product.name} style={{ backgroundColor: '#F8F8F8' }} className="mb-3" />
+                                                </Link>
+                                                <div className="product-action">
+                                                    <Link className="animate-left" title="Wishlist" href="#">
+                                                        <i className="pe-7s-like"></i>
+                                                    </Link>
+                                                    <Link className="animate-top" title="Add To Cart" href="#">
+                                                        <i className="pe-7s-cart"></i>
+                                                    </Link>
+                                                    <Link className="animate-right" title="Quick View" href="#">
+                                                        <i className="pe-7s-look"></i>
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                            <div className="furniture-product-content text-center">
+                                                <h4>
+                                                    <Link href={`/product/${product.id}`}>
+                                                        {product.name}
+                                                    </Link>
+                                                </h4>
+                                                <span>{product.price}</span>
+                                                <div className="product-rating-5">
+                                                    <i className="pe-7s-star black"></i>
+                                                    <i className="pe-7s-star black"></i>
+                                                    <i className="pe-7s-star"></i>
+                                                    <i className="pe-7s-star"></i>
+                                                    <i className="pe-7s-star"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <div className=" pt-70 pb-70">
+                        <div className="container ms-0 ps-0">
+                            <div className="row">
+                                <div className="ms-0">
+                                    <div className="pl-0">
+                                        <img src="/images/home/banner.png" alt="" style={{ backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div className="product-style-area pt-120">
                         <div className="coustom-container-fluid px-lg-5">
-                            <div className="section-title-7 text-center">
+                            <div className="section-title-7 text-start">
                                 <h2>All Products</h2>
-                                <p>
+                                {/* <p>
                                     Lorem Ipsum is simply dummy text of the printing and
                                     typesetting industry. Lorem Ipsum has been the industry`s
                                     standard dummy text
-                                </p>
+                                </p> */}
                             </div>
 
 
-                            <div className="product-tab-list text-center mb-65 nav" role="tablist">
+                            {/* <div className="product-tab-list text-center mb-65 nav" role="tablist">
                                 <a className="active" href="#all" data-bs-toggle="tab" role="tab">
                                     <h4>All Products </h4>
                                 </a>
-                                <a href="#rolling" data-bs-toggle="tab" role="tab">
-                                    <h4>Rolling Papers & Filters </h4>
+                                <a href="#Watches" data-bs-toggle="tab" role="tab">
+                                    <h4>Watches</h4>
                                 </a>
-                                <a href="#lighters" data-bs-toggle="tab" role="tab">
-                                    <h4>Lighters </h4>
+                                <a href="#Speaker" data-bs-toggle="tab" role="tab">
+                                    <h4>Laptop </h4>
                                 </a>
-                                <a href="#bongs" data-bs-toggle="tab" role="tab">
-                                    <h4>Bongs</h4>
+                                <a href="#Laptop" data-bs-toggle="tab" role="tab">
+                                    <h4>Laptop</h4>
                                 </a>
-                                <a href="#liquidgas" data-bs-toggle="tab" role="tab">
-                                    <h4>Refill liquid & Gas</h4>
+                                <a href="#charger " data-bs-toggle="tab" role="tab">
+                                    <h4>Charger </h4>
                                 </a>
-                                <a href="#smoking" data-bs-toggle="tab" role="tab">
-                                    <h4>Smoking Accessoires</h4>
+                                <a href="#headset" data-bs-toggle="tab" role="tab">
+                                    <h4>Headset</h4>
                                 </a>
-                            </div>
+                            </div> */}
 
                             <div className="tab-content">
-                                {["all", "rolling", "lighters", "bongs", "liquidgas", "smoking"].map((category) => (
+                                {["all", "Watches", "Speaker", "Laptop", "charger", "headset"].map((category) => (
                                     <div
                                         key={category}
                                         className={`tab-pane fade ${category === "all" ? "show active" : ""}`}
@@ -376,6 +419,40 @@ export default function Home() {
                             {/* <div className="view-all-product text-center">
                                 <a href="shop.html">View All Product</a>
                             </div> */}
+                        </div>
+                    </div>
+
+                    <div className="brand-logo-area-2 wrapper-padding ptb-80">
+                        <div className="container-fluid">
+                            <div className="brand-logo-active-new owl-carousel">
+                                <div className="single-brand">
+                                    <img src="assets/img/brand-logo/7.png" alt=""></img>
+                                </div>
+                                <div className="single-brand">
+                                    <img src="assets/img/brand-logo/8.png" alt=""></img>
+                                </div>
+                                <div className="single-brand">
+                                    <img src="assets/img/brand-logo/9.png" alt=""></img>
+                                </div>
+                                <div className="single-brand">
+                                    <img src="assets/img/brand-logo/10.png" alt=""></img>
+                                </div>
+                                <div className="single-brand">
+                                    <img src="assets/img/brand-logo/11.png" alt=""></img>
+                                </div>
+                                <div className="single-brand">
+                                    <img src="assets/img/brand-logo/12.png" alt=""></img>
+                                </div>
+                                <div className="single-brand">
+                                    <img src="assets/img/brand-logo/13.png" alt=""></img>
+                                </div>
+                                <div className="single-brand">
+                                    <img src="assets/img/brand-logo/7.png" alt=""></img>
+                                </div>
+                                <div className="single-brand">
+                                    <img src="assets/img/brand-logo/8.png" alt=""></img>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

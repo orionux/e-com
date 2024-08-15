@@ -133,25 +133,25 @@
     
     
     /* brand logo active */
-    // $('.brand-logo-active2').owlCarousel({
-    //     loop: true,
-    //     nav: false,
-    //     item: 7,
-    //     responsive: {
-    //         0: {
-    //             items: 1
-    //         },
-    //         768: {
-    //             items: 3
-    //         },
-    //         1000: {
-    //             items: 4
-    //         },
-    //         1200: {
-    //             items: 7
-    //         }
-    //     }
-    // })
+    $('.brand-logo-active-new').owlCarousel({
+        loop: true,
+        nav: false,
+        item: 7,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            },
+            1200: {
+                items: 6
+            }
+        }
+    })
     $('.brand-logo-active2').owlCarousel({
         loop: true,
         nav: false,

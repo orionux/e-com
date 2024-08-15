@@ -3254,6 +3254,9 @@ a.banner-book-style-btn:hover {
 .brand-logo-active2.owl-carousel .owl-item img {
     width: auto;
 }
+.brand-logo-active-new.owl-carousel .owl-item img {
+    width: auto;
+}
 .brand-logo-area-2 {
     position: relative;
 }
