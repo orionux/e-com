@@ -2,6 +2,8 @@ import Layout from "@/Components";
 import Link from "next/link";
 import React from "react";
 
+import styles from '../../styles/productpage/product.module.css';
+
 const Product = () => {
   const products = [
     {
@@ -115,6 +117,7 @@ const Product = () => {
   return (
     <Layout>
       <div>
+        {/*
         <div
           className="breadcrumb-area pt-205 breadcrumb-padding pb-210"
           style={{
@@ -125,6 +128,7 @@ const Product = () => {
           }}
         >
           <div className="container-fluid">
+            
             <div
               className="breadcrumb-content text-center"
               style={{ marginTop: "-30px", marginBottom: "30px" }}
@@ -136,6 +140,20 @@ const Product = () => {
                 </li>
                 <li>Our Products</li>
               </ul>
+            </div>
+              
+          </div>
+        </div>
+        */} 
+        <div className={`${styles.productUpperParent}`}>
+          <div className={`${styles.productUpper}`}>
+            <div>
+              <img src="/images/productpage/girljbl.png" alt="JBL" width={350} height={300} />
+            </div>
+            <div>
+              <h4 className="font-inter">JBL Product Company</h4>
+              <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. 
+                Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
             </div>
           </div>
         </div>
