@@ -86,6 +86,7 @@ export default function Home() {
             <Layout>
                 <div>
                     {/* hero slider */}
+                    {/*
                     <div className="slider-area">
                         <div className="brand-logo-area-2 wrapper-padding ptb-80">
                             <div className="container-fluid position-relative">
@@ -162,6 +163,78 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    */}
+                     
+                     <div>
+                     <div className=""  
+        style={{
+          backgroundImage:`url('/images/home/Background.png')`, 
+          backgroundPosition:'center top', 
+          backgroundRepeat:'no-repeat',
+          backgroundSize: 'cover',
+          display:'flex',
+          width:'full',
+          height:'75vh',
+          position:'relative',
+          }}>
+           <div 
+           className="text-[#606B6E] w-full absolute top-[30%] md:top-[40%] md:left-[-5%] space-y-2 flex flex-col justify-end items-end md:items-end text-right"
+           style={{
+            color:'#606B6E',
+            width:'100%',
+            position:'absolute',
+            top:'30%',
+            left:'-10%',
+            gap:'5',
+            display:'flex',
+            flexDirection:'column',
+            justifyContent:'flex-end',
+            alignItems:'flex-end',
+            textAlign:'end'
+
+           }}
+           >
+            <p 
+            className="font-semibold text-sm md:text-base"
+            style={{
+                fontWeight:'700',
+                fontSize:'1.5rem',
+                color:'#535353'
+
+            }}
+            >Electronic Collection</p>
+            <p className="text-4xl md:text-5xl font-semibold pt-1"
+                style={{
+                    fontSize:'3.5rem',
+                    fontWeight:'500',
+                    marginTop:'5px',
+
+                }}
+            >Sri Lankan &nbsp;
+            <span className="font-extrabold"
+                style={{
+                    fontWeight:'bold'
+                }}
+            >Biggest</span></p>
+            <p 
+                className=""
+                style={{
+                    fontSize:'3rem',
+                    fontWeight:'100',
+                    marginTop:'20px',
+                    fontFamily:'inherit'
+                }}
+            >Electronic Collection</p>
+            <p className="text-lg md:text-lg pt-2"
+                style={{
+                    fontSize:'1.5rem',
+                    marginTop:'10px',
+                }}
+            >Join Now</p>
+          </div>
+        </div>
+                        
                     </div>
 
                     <div className="popular-product-area wrapper-padding-3 pt-115 pb-115">
