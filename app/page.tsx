@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+
 import Layout from "@/Components";
 
 import Script from "next/script";
@@ -167,17 +168,7 @@ export default function Home() {
                     */}
                      
                      <div>
-                     <div className=""  
-        style={{
-          backgroundImage:`url('/images/home/Background.png')`, 
-          backgroundPosition:'center top', 
-          backgroundRepeat:'no-repeat',
-          backgroundSize: 'cover',
-          display:'flex',
-          width:'full',
-          height:'75vh',
-          position:'relative',
-          }}>
+                     <div className={`${styles.heroBg}`}>
            <div 
            className="text-[#606B6E] w-full absolute top-[30%] md:top-[40%] md:left-[-5%] space-y-2 flex flex-col justify-end items-end md:items-end text-right"
            style={{
@@ -196,41 +187,17 @@ export default function Home() {
            }}
            >
             <p 
-            className="font-semibold text-sm md:text-base"
-            style={{
-                fontWeight:'700',
-                fontSize:'1.5rem',
-                color:'#535353'
-
-            }}
-            >Electronic Collection</p>
-            <p className="text-4xl md:text-5xl font-semibold pt-1"
-                style={{
-                    fontSize:'3.5rem',
-                    fontWeight:'500',
-                    marginTop:'5px',
-
-                }}
+            className={`${styles.textE}`}>
+                Electronic Collection
+            </p>
+            <p className={`${styles.textSri}`}
             >Sri Lankan &nbsp;
-            <span className="font-extrabold"
-                style={{
-                    fontWeight:'bold'
-                }}
+            <span className={`${styles.textB}`}
             >Biggest</span></p>
             <p 
-                className=""
-                style={{
-                    fontSize:'3rem',
-                    fontWeight:'100',
-                    marginTop:'20px',
-                    fontFamily:'inherit'
-                }}
+                className={`${styles.textElec}`}
             >Electronic Collection</p>
-            <p className="text-lg md:text-lg pt-2"
-                style={{
-                    fontSize:'1.5rem',
-                    marginTop:'10px',
-                }}
+            <p className={`${styles.textJ}`}
             >Join Now</p>
           </div>
         </div>

@@ -108,6 +108,112 @@
   .logo {
     position: relative;
   }
+  
+  /*home*/
+  /*hero section*/
+.heroBg {
+  background-image: url('/images/home/Background.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  width: 100%;
+  height: 75vh;
+  position: relative;
+  
+}
+
+.textE {
+  font-weight: 700;
+  font-size: 1.5vw;
+  color:#535353;
+}
+.textSri {
+  font-size: 3.5vw;
+  font-weight: 500;
+  margin-top: 2%;
+
+}
+.textB {
+  font-weight: bold;
+}
+.textElec {
+  font-size: 3.2vw;
+  font-weight: 100;
+  margin-top: 2%;
+  font-family: inherit;
+}
+.textJ {
+  font-size: 1.5vw;
+  margin-top: 2%;
+  margin-bottom: 0;
+}
+
+@media only screen and  (max-width:700px) {
+  .heroBg {
+    height: 40vh;
+  }
+  .textE {
+    font-weight: 700;
+    font-size: 2vw;
+    margin-bottom: 0;
+  }
+  .textSri {
+    font-size: 5vw;
+    font-weight: 500;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .textB {
+    font-weight: bold;
+  }
+  .textElec {
+    font-size: 4vw;
+    font-weight: 100;
+    font-family: inherit;
+    margin-bottom: 0;
+    margin-top: 5px;
+  }
+  .textJ {
+    font-size: 2vw;
+    margin-top: 0;
+  }
+}
+@media only screen and  (min-width:700px) and (max-width:992px) {
+  .heroBg {
+    height: 50vh;
+  }
+  
+.textE {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+.textSri {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.textB {
+  font-weight: bold;
+}
+.textElec {
+  font-size: 1.7rem;
+  font-weight: 100;
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-family: inherit;
+}
+.textJ {
+  font-size: 1rem;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+}
+
+
+
+
   /* Enable hover only on non-touch devices */
   @media (hover: hover) and (pointer: fine) {
     .card:hover {
