@@ -261,7 +261,7 @@ export default function Home() {
                                                     <Link
                                                         className="animate-top"
                                                         title="Add To Cart"
-                                                        href="#"
+                                                        href="/cart"
                                                     >
                                                         <i className="pe-7s-cart"></i>
                                                     </Link>
@@ -307,7 +307,7 @@ export default function Home() {
                                                     <Link className="animate-left" title="Wishlist" href="#">
                                                         <i className="pe-7s-like"></i>
                                                     </Link>
-                                                    <Link className="animate-top" title="Add To Cart" href="#">
+                                                    <Link className="animate-top" title="Add To Cart" href="/cart">
                                                         <i className="pe-7s-cart"></i>
                                                     </Link>
                                                     <Link className="animate-right" title="Quick View" href="#">
@@ -417,7 +417,7 @@ export default function Home() {
                                                                     <a
                                                                         className="animate-top"
                                                                         title="Add To Cart"
-                                                                        href="#"
+                                                                        href="/cart"
                                                                     >
                                                                         <i className="pe-7s-cart"></i>
                                                                     </a>
@@ -752,7 +752,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* all js here */}
+                   
                 </div>
             </Layout>
         </>

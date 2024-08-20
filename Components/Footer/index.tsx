@@ -21,8 +21,8 @@ const Footer = () => {
                                     </div>
                                     <div className="footer-info-content3">
                                         <p> Televisieweg 41<br/>
-1322 AJ, Almere<br/>
-The Netherlands</p>
+                                            1322 AJ, Almere<br/>
+                                            The Netherlands</p>
                                     </div>
                                 </div>
                                 <div className="footer-address-furniture">

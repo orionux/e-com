@@ -33,7 +33,7 @@ const Product = () => {
   const productsGrid = [
     {
         id: 1,
-        name: "MacBook Pro",
+        name: "MacBook Pro 0",
         image: "/images/productpage/lapbig.png",
         price: "$90.00",
         category: "lighters",
@@ -42,7 +42,7 @@ const Product = () => {
     },
     {
         id: 2,
-        name: "MacBook Pro",
+        name: "MacBook Pro 1",
         image: "/images/productpage/lapbig.png",
         price: "$90.00",
         category: "lighters",
@@ -50,7 +50,7 @@ const Product = () => {
     },
     {
         id: 3,
-        name: "MacBook Pro",
+        name: "MacBook Pro 2",
         image: "/images/productpage/lapbig.png",
         price: "$90.00",
         category: "rolling",
@@ -59,7 +59,7 @@ const Product = () => {
     },
     {
         id: 4,
-        name: "MacBook Pro",
+        name: "MacBook Pro 3",
         image: "/images/productpage/lapbig.png",
         price: "$90.00",
         category: "rolling",
@@ -67,7 +67,7 @@ const Product = () => {
     },
     {
         id: 5,
-        name: "MacBook Pro",
+        name: "MacBook Pro 4",
         image: "/images/productpage/lapbig.png",
         price: "$90.00",
         category: "bongs",
@@ -76,7 +76,7 @@ const Product = () => {
     },
     {
         id: 6,
-        name: "MacBook Pro",
+        name: "MacBook Pro 5",
         image: "/images/productpage/lapbig.png",
         price: "$90.00",
         category: "bongs",
@@ -85,7 +85,7 @@ const Product = () => {
     },
     {
         id: 7,
-        name: "MacBook Pro",
+        name: "MacBook Pro 6",
         image: "/images/productpage/lapbig.png",
         price: "$90.00",
         category: "bongs",
@@ -94,7 +94,7 @@ const Product = () => {
     },
     {
         id: 8,
-        name: "MacBook Pro",
+        name: "MacBook Pro 7",
         image: "/images/productpage/lapbig.png",
         price: "$90.00",
         category: "smoking",
@@ -103,7 +103,7 @@ const Product = () => {
     },
     {
         id: 9,
-        name: "MacBook Pro",
+        name: "MacBook Pro 8",
         image: "/images/productpage/lapbig.png",
         price: "$90.00",
         category: "liquidgas",
@@ -609,7 +609,7 @@ const Product = () => {
                 <Link className="animate-left" title="Wishlist" href="#">
                   <i className="pe-7s-like"></i>
                 </Link>
-                <Link className="animate-top" title="Add To Cart" href="#">
+                <Link className="animate-top" title="Add To Cart" href="/cart">
                   <i className="pe-7s-cart"></i>
                 </Link>
                 <Link className="animate-right" title="Quick View" href="#">
