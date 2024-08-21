@@ -82,6 +82,9 @@ export default function Home() {
             link: '/'
         }];
 
+       
+          
+
     return (
         <>
             <Layout>
@@ -254,7 +257,7 @@ export default function Home() {
                                                     <Link
                                                         className="animate-left"
                                                         title="Wishlist"
-                                                        href="#"
+                                                        href="/favouriteProducts"
                                                     >
                                                         <i className="pe-7s-like"></i>
                                                     </Link>
@@ -268,7 +271,7 @@ export default function Home() {
                                                     <Link
                                                         className="animate-right"
                                                         title="Quick View"
-                                                        href="#"
+                                                        href={`/product/${product.id}`}
                                                     >
                                                         <i className="pe-7s-look"></i>
                                                     </Link>
@@ -304,13 +307,13 @@ export default function Home() {
                                                     <img src={product.image} alt={product.name} style={{ backgroundColor: '#F8F8F8' }} className="mb-3" />
                                                 </Link>
                                                 <div className="product-action">
-                                                    <Link className="animate-left" title="Wishlist" href="#">
+                                                    <Link className="animate-left" title="Wishlist" href="/favouriteProducts">
                                                         <i className="pe-7s-like"></i>
                                                     </Link>
                                                     <Link className="animate-top" title="Add To Cart" href="/cart">
                                                         <i className="pe-7s-cart"></i>
                                                     </Link>
-                                                    <Link className="animate-right" title="Quick View" href="#">
+                                                    <Link className="animate-right" title="Quick View" href={`/product/${product.id}`}>
                                                         <i className="pe-7s-look"></i>
                                                     </Link>
                                                 </div>
@@ -410,7 +413,7 @@ export default function Home() {
                                                                     <a
                                                                         className="animate-left"
                                                                         title="Wishlist"
-                                                                        href="#"
+                                                                        href="/favouriteProducts"
                                                                     >
                                                                         <i className="pe-7s-like"></i>
                                                                     </a>
@@ -424,9 +427,9 @@ export default function Home() {
                                                                     <a
                                                                         className="animate-right"
                                                                         title="Quick View"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#exampleModal"
-                                                                        href="#"
+                                                                        //data-bs-toggle="modal"
+                                                                        //data-bs-target="#exampleModal"
+                                                                        href={`${product.path}`}
                                                                     >
                                                                         <i className="pe-7s-look"></i>
                                                                     </a>
