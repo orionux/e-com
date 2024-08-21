@@ -39,7 +39,7 @@ const Cart = () => {
                                         <tr>
                                             <td className="product-remove"><a href="#"><i className="pe-7s-close"></i></a></td>
                                             <td className="product-thumbnail">
-                                                <a href="#"><img src="assets/img/productimg/ss.png" alt="" width={90} height={90} /></a>
+                                                <a href="#"><img src="images/productpage/lapsmall.png" alt="" width={90} height={90} /></a>
                                             </td>
                                             <td className="product-name"><a href="#">Wooden Furniture </a></td>
                                             <td className="product-price-cart"><span className="amount">$165.00</span></td>
@@ -51,7 +51,7 @@ const Cart = () => {
                                         <tr>
                                             <td className="product-remove"><a href="#"><i className="pe-7s-close"></i></a></td>
                                             <td className="product-thumbnail">
-                                                <a href="#"><img src="assets/img/productimg/hh.png" alt="" width={90} height={90} /></a>
+                                                <a href="#"><img src="images/productpage/watchsmall.png" alt="" width={90} height={90} /></a>
                                             </td>
                                             <td className="product-name"><a href="#">Vestibulum dictum</a></td>
                                             <td className="product-price-cart"><span className="amount">$150.00</span></td>
@@ -63,7 +63,7 @@ const Cart = () => {
                                         <tr>
                                             <td className="product-remove"><a href="#"><i className="pe-7s-close"></i></a></td>
                                             <td className="product-thumbnail">
-                                                <a href="#"><img src="assets/img/productimg/cc.png" alt="" width={90} height={90} /></a>
+                                                <a href="#"><img src="images/productpage/pistol.png" alt="" width={90} height={90} /></a>
                                             </td>
                                             <td className="product-name"><a href="#">Vestibulum dictum</a></td>
                                             <td className="product-price-cart"><span className="amount">$150.00</span></td>
