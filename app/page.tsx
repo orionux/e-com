@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -6,7 +8,13 @@ import Layout from "@/Components";
 import Script from "next/script";
 import Head from "next/head";
 import Link from "next/link";
+import FavoriteIcon from "@/public/assets/SVG/FavoriteIcon";
+import OrderIcon from "@/public/assets/SVG/OrderIcon";
+import ProductIcon from "@/public/assets/SVG/ProductIcon";
+import FavIcon from "@/public/assets/SVG/FavIcon";
+import { useState } from "react";
 
+type IconType = 'order' | 'product' | 'fav';
 
 export default function Home() {
     const productsGrid = [
@@ -83,6 +91,11 @@ export default function Home() {
         }];
 
        
+        const [activeIcon, setActiveIcon] = useState<IconType | null>(null);
+
+        const handleIconClick = (icon: IconType) => {
+          setActiveIcon(icon);
+        };
           
 
     return (
@@ -172,38 +185,66 @@ export default function Home() {
                      
                      <div>
                      <div className={`${styles.heroBg}`}>
-           <div 
-           className="text-[#606B6E] w-full absolute top-[30%] md:top-[40%] md:left-[-5%] space-y-2 flex flex-col justify-end items-end md:items-end text-right"
-           style={{
-            color:'#606B6E',
-            width:'100%',
-            position:'absolute',
-            top:'30%',
-            left:'-10%',
-            gap:'5',
-            display:'flex',
-            flexDirection:'column',
-            justifyContent:'flex-end',
-            alignItems:'flex-end',
-            textAlign:'end'
+                        <div className={`${styles.heroBarSection}`}>
+                            <div className={styles.heroBar}>
+                                <div
+                                    className={`${styles.orderIcon} ${activeIcon === 'order' ? styles.active : ''}`}
+                                    onClick={() => handleIconClick('order')} // Set 'order' as the active icon
+                                >
+                                    <a href="#">
+                                    <OrderIcon height={20} width={20} stroke={activeIcon === 'order' ? "#A67425" : "#fff"} />
+                                    </a>
+                                </div>
+                                <div
+                                    className={`${styles.productIcon} ${activeIcon === 'product' ? styles.active : ''}`}
+                                    onClick={() => handleIconClick('product')} // Set 'product' as the active icon
+                                >
+                                    <a href="#">
+                                    <ProductIcon width={20} height={20} stroke={activeIcon === 'product' ? "#A67425" : "#fff"} />
+                                    </a>
+                                </div>
+                                <div
+                                    className={`${styles.favIcon} ${activeIcon === 'fav' ? styles.active : ''}`}
+                                    onClick={() => handleIconClick('fav')} // Set 'fav' as the active icon
+                                >
+                                    <a href="#">
+                                    <FavIcon width={20} height={20} fill={activeIcon === 'fav' ? "#A67425" : "#fff"} />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div 
+                            className=""
+                            style={{
+                                color:'#606B6E',
+                                width:'100%',
+                                position:'absolute',
+                                top:'30%',
+                                left:'-10%',
+                                gap:'5',
+                                display:'flex',
+                                flexDirection:'column',
+                                justifyContent:'flex-end',
+                                alignItems:'flex-end',
+                                textAlign:'end'
 
-           }}
-           >
-            <p 
-            className={`${styles.textE}`}>
-                Electronic Collection
-            </p>
-            <p className={`${styles.textSri}`}
-            >Sri Lankan &nbsp;
-            <span className={`${styles.textB}`}
-            >Biggest</span></p>
-            <p 
-                className={`${styles.textElec}`}
-            >Electronic Collection</p>
-            <p className={`${styles.textJ}`}
-            >Join Now</p>
-          </div>
-        </div>
+                            }}
+                            >
+                            <p 
+                            className={`${styles.textE}`}>
+                                Electronic Collection
+                            </p>
+                            <p className={`${styles.textSri}`}
+                            >Sri Lankan &nbsp;
+                            <span className={`${styles.textB}`}
+                            >Biggest</span></p>
+                            <p 
+                                className={`${styles.textElec}`}
+                            >Electronic Collection</p>
+                            <p className={`${styles.textJ}`}
+                            >Join Now</p>
+                        </div>
+                     </div>
                         
                     </div>
 
