@@ -189,7 +189,7 @@ export default function Home() {
                             <div className={styles.heroBar}>
                                 <div
                                     className={`${styles.orderIcon} ${activeIcon === 'order' ? styles.active : ''}`}
-                                    onClick={() => handleIconClick('order')} // Set 'order' as the active icon
+                                    onClick={() => handleIconClick('order')} 
                                 >
                                     <a href="#">
                                     <OrderIcon height={20} width={20} stroke={activeIcon === 'order' ? "#A67425" : "#fff"} />
@@ -197,7 +197,7 @@ export default function Home() {
                                 </div>
                                 <div
                                     className={`${styles.productIcon} ${activeIcon === 'product' ? styles.active : ''}`}
-                                    onClick={() => handleIconClick('product')} // Set 'product' as the active icon
+                                    onClick={() => handleIconClick('product')} 
                                 >
                                     <a href="#">
                                     <ProductIcon width={20} height={20} stroke={activeIcon === 'product' ? "#A67425" : "#fff"} />
@@ -205,7 +205,7 @@ export default function Home() {
                                 </div>
                                 <div
                                     className={`${styles.favIcon} ${activeIcon === 'fav' ? styles.active : ''}`}
-                                    onClick={() => handleIconClick('fav')} // Set 'fav' as the active icon
+                                    onClick={() => handleIconClick('fav')}
                                 >
                                     <a href="#">
                                     <FavIcon width={20} height={20} fill={activeIcon === 'fav' ? "#A67425" : "#fff"} />
