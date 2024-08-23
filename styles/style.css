@@ -1353,10 +1353,10 @@ label{
     color: #383838;
 }
 .menu-style-2 nav > ul > li > a {
-    color: #383838;
+    color: #A67425;
     display: inline-block;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: normal;
     padding: 50px 0 51px;
     text-transform: capitalize;
 }
@@ -1368,7 +1368,7 @@ label{
     color: #f44344;
 }
 .menu-style-2 ul li:hover a {
-    color: #050035;
+    color: #A67425;
 }
 
 /* 3.3 Slider style book */

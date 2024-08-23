@@ -1,0 +1,36 @@
+
+.navbar {
+    list-style: none;
+    display: flex;
+    
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: #A67425;
+    position: relative;
+    
+  }
+  
+  .navbar a:hover,
+  .navbar a.active {
+    color: #A67425;
+    font-weight: bold;
+  }
+  
+  .navbar a.active::after,
+  .navbar a:hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #A67425;
+    left: 0;
+    bottom: 35px;
+    transition: width 0.3s;
+  }
+  
+  .navbar a::after {
+    width: 0;
+  }
+  
