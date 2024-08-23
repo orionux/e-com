@@ -2,16 +2,14 @@
 
 import { usePathname } from 'next/navigation';
 import React from "react";
-import Script from "next/script";
 
-import styles from '../../styles/navbar/NavBar.module.css';
+import styles from '../../styles/navbar/Navbar.module.css';
 
 const NavBar = () => {
   const pathname = usePathname();
 
   return (
     <div>
-      <Script src="../js/vendor/modernizr-3.11.7.min.js"></Script>
 
       <div className="header-top-furniture wrapper-padding-2 res-header-sm">
         <div className="container-fluid">
@@ -79,7 +77,7 @@ const NavBar = () => {
                     <a href="/privacy-policy" className={`${pathname === '/privacy-policy' ? styles.active : '' }`}>privacy policy</a>
                   </li>
                   <li>
-                    <a href="/contactUs" className={`${pathname === '/contact' ? styles.active : ''}`}>contact</a>
+                    <a href="/contactUs" className={`${pathname === '/contactUs' ? styles.active : ''}`}>contact</a>
                   </li>
                 </ul>
               </nav>
