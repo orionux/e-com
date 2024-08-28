@@ -16,7 +16,7 @@ const NavBar = () => {
           <div className="header-bottom-wrapper">
             <div className="logo-2 furniture-logo ptb-30">
               <a href="index.html" className=''>
-                <img src="/assets/SVG/Forthouse.svg" width="100" height="50" alt="" />
+                <img src="/assets/SVG/Forthouse.svg" width="50" height="50" alt="" />
               </a>
             </div>
             <div className="menu-style-2 furniture-menu menu-hover">

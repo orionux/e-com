@@ -1,4 +1,3 @@
-import Flogo from '@/public/assets/SVG/Flogo'
 import React from 'react'
 
 const Footer = () => {
