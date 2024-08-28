@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import React from "react";
 
 import styles from '../../styles/navbar/Navbar.module.css';
+import Flogo from '@/public/assets/SVG/Flogo';
 
 const NavBar = () => {
   const pathname = usePathname();
@@ -16,7 +17,7 @@ const NavBar = () => {
           <div className="header-bottom-wrapper">
             <div className="logo-2 furniture-logo ptb-30">
               <a href="index.html">
-                <img src="/images/home/logoorion.png" width="180" height="50" alt="" />
+                <Flogo width={150} height={80} />
               </a>
             </div>
             <div className="menu-style-2 furniture-menu menu-hover">

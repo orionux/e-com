@@ -1,3 +1,4 @@
+import Flogo from '@/public/assets/SVG/Flogo'
 import React from 'react'
 
 const Footer = () => {
@@ -7,7 +8,7 @@ const Footer = () => {
                 <div className="container-fluid">
                     <div className="widget-wrapper">
                         <div className="footer-widget mb-30">
-                            <a href="#"><img src="/images/home/logoorion.png" width="200" height="50" alt="" /></a>
+                            <a href="#"><Flogo width={200} height={100} /></a>
                             <div className="footer-about-2">
                                 <p>There are many variations of passages of Lorem Ipsum <br/>the majority have suffered alteration in some form, by <br/> injected humour</p>
                             </div>
