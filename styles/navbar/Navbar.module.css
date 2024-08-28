@@ -7,14 +7,14 @@
   
   .navbar a {
     text-decoration: none;
-    color: #A67425;
+    color: #606B6E;
     position: relative;
     
   }
   
   .navbar a:hover,
   .navbar a.active {
-    color: #A67425;
+    color: #606B6E;
     font-weight: bold;
   }
   
@@ -24,7 +24,7 @@
     position: absolute;
     width: 100%;
     height: 3px;
-    background-color: #A67425;
+    background-color: #606B6E;
     left: 0;
     bottom: 35px;
     transition: width 0.3s;
