@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="container-fluid">
                     <div className="widget-wrapper">
                         <div className="footer-widget mb-30">
-                            <a href="#"><img src="/assets/SVG/forthouse.svg" width="180" height="50" alt="" /></a>
+                            <a href="#"><img src="/assets/SVG/Forthouse.svg" width="180" height="50" alt="" /></a>
                             <div className="footer-about-2">
                                 <p>There are many variations of passages of Lorem Ipsum <br/>the majority have suffered alteration in some form, by <br/> injected humour</p>
                             </div>
