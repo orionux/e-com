@@ -6,6 +6,8 @@
     display: flex;
     min-height: 80vh; 
     background-color: #ffffff; 
+    position: relative;
+
   }
   
   .sidebar {
@@ -18,6 +20,8 @@
     justify-content: space-between;
     height: fit-content; 
     margin: 20px 20px; 
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
   }
   
   .navList {
@@ -66,6 +70,59 @@
     flex: 1;
     padding: 20px;
     background-color: #ffffff; 
+  }
+  .mobileMenuButton {
+    display: none;
+    border:none; 
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top:0;
+    left: 0;
+  }
+  .mobileMenuButton button {
+    border: none;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    background-color: #606B6E;
+  }
+   /* Mobile-specific styles */
+   @media screen and (max-width: 768px) {
+    .sidebar {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      transform: translateX(-100%);
+      margin: 0;
+      border-radius: 0;
+      padding-top: 60px;
+      padding: 20px;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    .mobileMenuButton {
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        z-index: 1100;
+        display: block; 
+      }
+
+    .content {
+      margin-left: 0;
+      padding-top: 60px;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .sidebar {
+        width: 85%;
+
+    }
   }
   
   /*dashboardview*/
