@@ -1,19 +1,41 @@
 "use client";
 
 import { usePathname } from 'next/navigation';
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from '../../styles/navbar/Navbar.module.css';
+import OrderIcon from '@/public/assets/SVG/OrderIcon';
+import ProductIcon from '@/public/assets/SVG/ProductIcon';
+import FavIcon from '@/public/assets/SVG/FavIcon';
+
+type IconType = 'order' | 'product' | 'fav';
 
 const NavBar = () => {
   const pathname = usePathname();
 
+  const [activeIcon, setActiveIcon] = useState<IconType | null>(null);
+
+  useEffect(() => {
+    // Set active icon based on current pathname
+    if (pathname === '/product') {
+      setActiveIcon('order');
+    } else if (pathname === '/') {
+      setActiveIcon('product');
+    } else if (pathname === '/favouriteProducts') {
+      setActiveIcon('fav');
+    }
+  }, [pathname]);
+
+        const handleIconClick = (icon: IconType) => {
+          setActiveIcon(icon);
+        };
+        
   return (
     <div>
 
       <div className="header-top-furniture wrapper-padding-2 res-header-sm">
-        <div className="container-fluid">
-          <div className="header-bottom-wrapper">
+        <div className="container-fluid" >
+          <div className="header-bottom-wrapper" style={{position:'relative'}}>
             <div className="logo-2 furniture-logo ptb-30">
               <a href="index.html" className=''>
                 <img src="/assets/SVG/black v.svg" width="100" height="60" alt="" />
@@ -94,6 +116,7 @@ const NavBar = () => {
               </ul>
             </div>
             </div>
+                        
             {/* <div className="header-cart">
               <a className="icon-cart-furniture" href="#">
                 <i className="ti-shopping-cart"></i>
@@ -181,6 +204,36 @@ const NavBar = () => {
                 </li>
               </ul>
             </div> */}
+          
+            <div className={`${styles.heroBarSection}`}>
+                            <div className={styles.heroBar}>
+                                <div
+                                    className={`${styles.orderIcon} ${activeIcon === 'order' ? styles.activeBtn : ''}`}
+                                    onClick={() => handleIconClick('order')} 
+                                >
+                                    <a href="/product">
+                                    <OrderIcon height={20} width={20} stroke={activeIcon === 'order' ? "#A67425" : "#fff"} />
+                                    </a>
+                                </div>
+                                <div
+                                    className={`${styles.productIcon} ${activeIcon === 'product' ? styles.activeBtn : ''}`}
+                                    onClick={() => handleIconClick('product')} 
+                                >
+                                    <a href="/">
+                                    <ProductIcon width={20} height={20} stroke={activeIcon === 'product' ? "#A67425" : "#fff"} />
+                                    </a>
+                                </div>
+                                <div
+                                    className={`${styles.favIcon} ${activeIcon === 'fav' ? styles.activeBtn : ''}`}
+                                    onClick={() => handleIconClick('fav')}
+                                >
+                                    <a href="/favouriteProducts">
+                                    <FavIcon width={20} height={20} fill={activeIcon === 'fav' ? "#A67425" : "#fff"} />
+                                    </a>
+                                </div>
+                            </div>
+            </div>
+          
           </div>
           <div className="row">
             <div className="mobile-menu-area d-md-block col-md-12 col-lg-12 col-12 d-lg-none d-xl-none">
@@ -247,6 +300,10 @@ const NavBar = () => {
               </div>
             </div>
           </div>
+        
+        
+        
+
         </div>
       </div>
       {/* <div className="header-bottom-furniture wrapper-padding-2 border-top-3">

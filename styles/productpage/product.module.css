@@ -2,6 +2,7 @@
     display: flex;
     align-items: start;
     justify-content: center;
+    margin-top: 5%;
 }
 .productUpper {
     
@@ -24,6 +25,9 @@
 }
 
 @media only screen and  (max-width:700px) {
+    .productUpperParent{
+        margin-top: 20%;
+    }
     .productUpper {
         flex-direction: column;
         align-items: center;
