@@ -16,10 +16,9 @@ const NavBar = () => {
   const [activeIcon, setActiveIcon] = useState<IconType | null>(null);
 
   useEffect(() => {
-    // Set active icon based on current pathname
     if (pathname === '/product') {
       setActiveIcon('order');
-    } else if (pathname === '/') {
+    } else if (pathname === '/cart') {
       setActiveIcon('product');
     } else if (pathname === '/favouriteProducts') {
       setActiveIcon('fav');
@@ -219,7 +218,7 @@ const NavBar = () => {
                                     className={`${styles.productIcon} ${activeIcon === 'product' ? styles.activeBtn : ''}`}
                                     onClick={() => handleIconClick('product')} 
                                 >
-                                    <a href="/">
+                                    <a href="/cart">
                                     <ProductIcon width={20} height={20} stroke={activeIcon === 'product' ? "#A67425" : "#fff"} />
                                     </a>
                                 </div>
