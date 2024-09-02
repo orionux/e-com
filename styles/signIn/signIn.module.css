@@ -1,5 +1,5 @@
 
-.registerWrapper {
+.signinWrapper {
     display: flex;
     justify-content: space-between;
     height: 100vh;
@@ -7,27 +7,27 @@
     position: relative;
   }
 
-  .registerSection {
+  .signinSection {
     display: flex;
     width: 100%;
     max-width: 1200px;
     margin: auto;
   }
 
-.registerForm {
+.signinForm {
     padding: 1rem;
     width: 35%;
     margin-left: 5rem;
 }
 
-.registerForm h2 {
+.signinForm h2 {
     font-family: "Inter", sans-serif;
     font-size: 1.7rem;
     font-weight: 800;
     text-align: center;
     padding-bottom: 0;
 }
-.registerForm h5 {
+.signinForm h5 {
     font-family: "Inter", sans-serif;
     font-size: 0.9rem;
     font-weight: bold;
@@ -45,44 +45,44 @@
 }
 
 
-.registerForm input {
+.signinForm input {
     border-radius: 10px;
     margin-bottom: 0rem;
 }
-.regImg {
+.signinImg {
     position: absolute;
     bottom: 0;
     left: 40%;
     width: 50%; 
     text-align: center;
   }
-  .regImg img {
+  .signingImg img {
     width: 120%;
     object-fit: contain;
   }
-.regImg h1 {
+.signinImg h1 {
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2.5rem;
     padding-left: 15rem;
 
 }
-.regImg p{
+.signinImg p{
     padding-left: 15rem;
 
 }
-.regBtn {
+.signinBtn {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 1rem;
     margin-bottom: 1rem;
 }
-.regBtn a {
+.signinBtn a {
     color: #333333;
     font-weight: 600;
 }
-.regBtn button {
+.signinBtn button {
     background-color: #606B6E;
     color: #fff;
     border: none;
@@ -90,7 +90,7 @@
     width: 50%;
     border-radius: 10px;
 }
-.registerForm p {
+.signinisterForm p {
     text-align: center;
     color: #333333;
     font-weight: 600;
@@ -98,21 +98,12 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .registerSection {
-        flex-direction: column;
+    .signinSection {
+        flex-direction: column-reverse;
     }
-    .terms {
-        justify-content: flex-start;
-        text-align: left;
-        padding: 1rem;
-    }
+    
 
-    .terms a {
-        display: inline-block;
-        width: 100%;
-    }
-
-    .regImg {
+    .signinImg {
         order: 1;
         width: 100%;
         margin-bottom: 2rem;
@@ -121,7 +112,7 @@
         
     }
  
-    .registerForm {
+    .signinForm {
         order: 2;
         padding: 2rem 1rem;
         width: 100%;
