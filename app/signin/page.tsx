@@ -32,7 +32,7 @@ const SignIn = () => {
       <div className={styles.signinImg}>
       <h1>Original Products</h1>
       <p>All types of tobacco and related products with a guarantee. </p>
-        <img src="/images/signIn/signIn.png" alt="" width='800px' className=''/>
+        <img src="/images/signIn/signin.png" alt="" width='800px' className=''/>
       </div>
     </div>
   )
