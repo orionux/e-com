@@ -212,6 +212,7 @@ export default function Home() {
       color: '#B7C1E9',
       link: '/'
     }];
+    
   return (
     <>
 
