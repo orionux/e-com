@@ -190,7 +190,7 @@ const ProductPage = () => {
         <div
           className="breadcrumb-area pt-205 pb-210"
           style={{
-            backgroundImage: "url(/assets/img/aboutBanner.png)",
+            backgroundImage: "url(/assets/img/Background.png)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center top",
