@@ -241,7 +241,7 @@ export default function Home() {
           <div
             className="d-none d-lg-flex p-5 m-0 flex-column justify-content-end align-items-end"
             style={{
-              backgroundImage: `url("assets/img/hero.png")`,
+              backgroundImage: `url("assets/img/Background.png")`,
               height: "90vh",
               width: '100%',
               backgroundPosition: 'center',

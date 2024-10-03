@@ -52,9 +52,9 @@ const NavBar = () => {
       <div className="header-top-furniture wrapper-padding-2 res-header-sm navPosition bg-white w-100"  style={{zIndex: '99999999 !important'}}>
         <div className="container-fluid">
           <div className="header-bottom-wrapper" style={{ position: 'relative' }}>
-            <div className="logo-2 furniture-logo ptb-30">
+            <div className="logo-2 furniture-logo py-3">
               <a href="/">
-                <img src="/assets/img/svg/ferolislogo.svg" width="180" height="50" alt="" />
+                <img src="/assets/img/logo.png" width="auto" height="70" alt="" />
               </a>
             </div>
             <div className="menu-style-2 furniture-menu menu-hover">
@@ -66,12 +66,12 @@ const NavBar = () => {
                   <li>
                     <a href="/product" className={`${pathname === '/product' ? styles.active : ''}`}>Product</a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="/about-us" className={`${pathname === '/about-us' ? styles.active : ''}`}>About Us</a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a href="/privacy-policy" className={`${pathname === '/privacy-policy' ? styles.active : ''}`}>privacy policy</a>
-                  </li>
+                  </li> */}
                   <li>
                     <a href="/contact" className={`${pathname === '/contact' ? styles.active : ''}`}>contact</a>
                   </li>
