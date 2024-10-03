@@ -1,6 +1,10 @@
-import React from 'react'
+"use client";
+
+
+import React, { useEffect } from 'react'
 import Footer from './Footer'
 import NavBar from './NavBar';
+import Head from 'next/head';
 import Script from 'next/script';
 
 type LayoutProps = {
@@ -9,10 +13,23 @@ type LayoutProps = {
 
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+
+  // useEffect(() => {
+  //   const handleBeforeUnload = () => {
+  //     localStorage.removeItem('authToken');
+  //   };
+  
+  //   window.addEventListener('beforeunload', handleBeforeUnload);
+  
+  //   return () => {
+  //     window.removeEventListener('beforeunload', handleBeforeUnload);
+  //   };
+  // }, []);
+  
   return (
     <>
       <NavBar />
-      <main>{children}</main>
+      <main className='layout-margin'>{children}</main>
       <Footer />
         <Script type="text/javascript" src="/assets/js/vendor/modernizr-3.11.7.min.js"/>
         <Script type="text/javascript" src="/assets/js/vendor/jquery-1.12.4.min.js"/>

@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="container-fluid">
                     <div className="widget-wrapper">
                         <div className="footer-widget mb-30">
-                            <a href="#"><img src="/assets/SVG/black v.svg" width="200" height="100" alt="" /></a>
+                            <a href="#"><img src="/assets/img/svg/ferolislogo.svg" width="200" height="50" alt="" /></a>
                             <div className="footer-about-2">
                                 <p>There are many variations of passages of Lorem Ipsum <br/>the majority have suffered alteration in some form, by <br/> injected humour</p>
                             </div>
@@ -20,9 +20,9 @@ const Footer = () => {
                                         <span>Address: </span>
                                     </div>
                                     <div className="footer-info-content3">
-                                        <p> Televisieweg 41<br/>
-                                            1322 AJ, Almere<br/>
-                                            The Netherlands</p>
+                                        <p> Televisieweg 41
+1322 AJ, Almere<br/>
+The Netherlands</p>
                                     </div>
                                 </div>
                                 <div className="footer-address-furniture">
@@ -43,6 +43,7 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
+                        {/*
                         <div className="footer-widget mb-30">
                             <h3 className="footer-widget-title-5">Newsletter</h3>
                             <div className="footer-newsletter-2">
@@ -58,6 +59,7 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
+                        */}
                     </div>
                 </div>
             </div>
@@ -66,7 +68,7 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="copyright-furniture">
-                                <p>Copyright © <a href="hastech.company/">HasTech</a> 2022 . All Right Reserved.</p>
+                                <p>Copyright © 2023 <a href="hastech.company/">Ferolis</a>. All Right Reserved - Developed By ORION UX</p>
                             </div>
                         </div>
                     </div>

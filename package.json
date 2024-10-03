@@ -1,5 +1,5 @@
 {
-  "name": "e-com",
+  "name": "e-com-site",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,28 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "antd": "^5.19.3",
-    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "easyzoom": "^2.6.0",
     "jquery": "^3.7.1",
-    "next": "14.1.4",
+    "next": "14.2.5",
     "owl.carousel": "^2.3.4",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^5.2.1",
-    "react-owl-carousel": "^2.3.3",
-    "swiper": "^11.1.7"
+    "react-icons": "^5.3.0",
+    "swiper": "^11.1.12"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.30",
-    "@types/node": "20.14.15",
-    "@types/react": "18.3.3",
+    "@types/node": "^20",
+    "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/react-slick": "^0.23.13",
-    "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.1.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "5.5.4"
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5"
   }
 }

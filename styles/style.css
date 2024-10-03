@@ -1353,7 +1353,7 @@ label{
     color: #383838;
 }
 .menu-style-2 nav > ul > li > a {
-    color: #606B6E;
+    color: #889092;
     display: inline-block;
     font-size: 16px;
     font-weight: normal;
@@ -1368,7 +1368,7 @@ label{
     color: #f44344;
 }
 .menu-style-2 ul li:hover a {
-    color: #606B6E;
+    color: #050035;
 }
 
 /* 3.3 Slider style book */
@@ -3254,9 +3254,6 @@ a.banner-book-style-btn:hover {
 .brand-logo-active2.owl-carousel .owl-item img {
     width: auto;
 }
-.brand-logo-active-new.owl-carousel .owl-item img {
-    width: auto;
-}
 .brand-logo-area-2 {
     position: relative;
 }
@@ -4818,7 +4815,7 @@ a.icon-cart-furniture span.green {
 
 .widget-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .footer-about-2 > p {
     color: #666666;

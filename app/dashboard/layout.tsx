@@ -14,6 +14,7 @@ import Footer from '../../Components/Footer';
 import styles from '../../styles/dashboard/dashboard.module.css'; 
 import Script from 'next/script';
 
+
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname(); 
   const [sidebarOpen, setSidebarOpen] = useState(false); 
@@ -22,11 +23,11 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     <div>
       <Navbar />
       
-      <div className={styles.dashboardContainer}>
+      <div className={`${styles.dashboardContainer} layout-margin`}>
         <div className={styles.mobileMenuButton}>
-            <button onClick={() => setSidebarOpen(!sidebarOpen)}>
-              {sidebarOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
-            </button>
+          <button onClick={() => setSidebarOpen(!sidebarOpen)}>
+            {sidebarOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+          </button>
         </div>
         <aside className={`${styles.sidebar} ${sidebarOpen ? styles.open : ''}`}>
           <nav>
