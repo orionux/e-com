@@ -129,7 +129,7 @@ const page = () => {
                       </div>
                       <div className="contact-info-text">
                         <p>
-                          <span>Email: </span> info@ferolis.com
+                          <span>Email: </span> info@forthouse.com
                         </p>
                       </div>
                     </div>

@@ -38,7 +38,7 @@ The Netherlands</p>
                                         <span>E-mail: </span>
                                     </div>
                                     <div className="footer-info-content3">
-                                        <p><a href="mailto:  info@ferolis.com"> info@ferolis.com</a> </p>
+                                        <p><a href="mailto:  info@ferolis.com"> info@forthouse.com</a> </p>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@ The Netherlands</p>
                     <div className="row">
                         <div className="col-12 text-center">
                             <div className="copyright-furniture">
-                                <p>Copyright © 2023 <a href="hastech.company/">Ferolis</a>. All Right Reserved - Developed By ORION UX</p>
+                                <p>Copyright © 2024 <a href="hastech.company/">Fort House</a>. All Right Reserved - Developed By ORION UX</p>
                             </div>
                         </div>
                     </div>
