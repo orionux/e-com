@@ -31,7 +31,7 @@ const FavProducts = () => {
         <Layout>
             <div className="breadcrumb-area pt-205 pb-210"
                 style={{
-                    backgroundImage: "url(assets/img/aboutBanner.png)",
+                    backgroundImage: "url(assets/img/Background.png)",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center top",
@@ -91,7 +91,10 @@ const FavProducts = () => {
                                                             onChange={(e) => updateCartQuantity(product.id, parseInt(e.target.value))}
                                                         />
                                                     </td>
-                                                    <td className="product-subtotal">${product.price * product.quantity}</td>
+                                                    {/* <td className="product-subtotal">${product.price * product.quantity}</td> */}
+                                                    <td className="product-subtotal">
+                                                    <button className='mt-2' type="button" onClick={()=> console.log("clicked")} style={{ backgroundColor: "#333", color: "#fff", padding: "11px 20px", border: "none", outline: 'none' }}>Add to Cart</button>
+                                                    </td>
                                                 </tr>
                                             ))}
                                         </tbody>
