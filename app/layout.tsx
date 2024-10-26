@@ -18,7 +18,7 @@ import "../styles/hamburgers.min.css";
 import "../styles/icofont.css";
 import "../styles/jquery-ui.css";
 import "../styles/slinky.min.css";
-import AgeVerificationPopup from "@/Components/AgeVerificationPopup";
+// import AgeVerificationPopup from "@/Components/AgeVerificationPopup";
 import { UserProvider } from "@/context/UserContext";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -37,7 +37,7 @@ export default function RootLayout({
     <html lang="en">
       <UserProvider>
         <body className={inter.className}>
-          <AgeVerificationPopup />
+          {/* <AgeVerificationPopup /> */}
           {children}
         </body>
       </UserProvider>
