@@ -23,12 +23,12 @@ const page = () => {
               className="breadcrumb-content text-center"
               style={{ marginTop: "-30px", marginBottom: "30px" }}
             >
-              <h2>about us</h2>
+              <h2 className="text-dark">about us</h2>
               <ul>
                 <li>
-                  <a href="#">home</a>
+                  <a href="#" className="text-dark">home</a>
                 </li>
-                <li> about us </li>
+                <li className="text-dark"> about us </li>
               </ul>
             </div>
           </div>

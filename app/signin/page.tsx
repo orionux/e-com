@@ -2,18 +2,26 @@
 
 import React, { useState, useEffect } from "react";
 import { apiUrl } from "../api/apiServices";
+import { useUser } from "@/context/UserContext";
+import { useRouter } from "next/navigation";
+import Toast from "@/Components/Toast";
 
 const SignIn = () => {
+  const router = useRouter();
+  const { setUserDetails } = useUser();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState({ email: "", password: "" });
   const [apiError, setApiError] = useState("");
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [toastType, setToastType] = useState<"success" | "error">("success");
+  const [customerEmail, setCustomerEmail] = useState(String);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const token = localStorage.getItem("authToken");
-      if (token) {
-        window.location.href = "/dashboard";
-      }
+      const storedCustomerEmail = localStorage.getItem('logged_email');
+      setCustomerEmail(storedCustomerEmail || '');
+      // window.location.href = "/dashboard";
+
     }
   }, []);
 
@@ -63,29 +71,41 @@ const SignIn = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Login successful:", data);
-
-        if (typeof window !== "undefined") {
-          const customerId = data.user.id;
-          const customerName = data.user.customer_details.customer_name;
-
-          localStorage.setItem("customer_id", customerId.toString());
-          localStorage.setItem("customer_name", customerName);
-
-          const tempToken = Math.random().toString(36).substr(2);
-          localStorage.setItem("authToken", tempToken);
-
-          setApiError("");
-          window.location.href = "/dashboard";
+        // console.log("Login successful:", data);
+        // console.log("context : ", data.user.email, data.user.customer_details.customer_name, data.user.customer_details.user_id)
+        setUserDetails(
+          data.user.email,
+          data.user.customer_details.customer_name,
+          data.user.customer_details.user_id
+        );
+        if (data.user.api_token) {
+          document.cookie = `api_token=${data.user.api_token}; path=/; secure; SameSite=Strict`;
+          // window.location.href = "/dashboard";
+          setToastMessage("Login successful!");
+          setToastType("success");
+          router.push("/dashboard");
+        } else {
+          
         }
       } else {
-        const errorMessage = await response.text();
-        setApiError(`Login failed please check your credentials. Try Again`);
-        console.error("Login error:", errorMessage);
+        // const errorMessage = await response.text();
+        // setApiError(errorMessage);
+        // setToastMessage("Login failed. Please check your credentials.");
+        // setToastType("error");
+        if (customerEmail) {
+          // setApiError("Your email has been successfully verified. Your account is currently undergoing the verification process. Please wait while we complete this step. Thank you for your patience!");
+          setToastMessage("Your email has been successfully verified. Your account is currently undergoing the verification process. Please wait while we complete this step. Thank you for your patience!");
+          setToastType("success");
+        } else {
+          // setApiError("Login failed. Please try again.");
+          setToastMessage("Login failed. Please try again.");
+          setToastType("error");
+        }
       }
     } catch (error) {
-      setApiError(`Login failed please check your credentials. Try Again`);
-      console.error("Error:", error);
+      setApiError("Login failed. Please check your credentials.");
+      setToastMessage("Login failed. Please check your credentials.");
+      setToastType("error");
     }
   };
 
@@ -152,9 +172,18 @@ const SignIn = () => {
                         >
                           Login
                         </button>
+                        <p
+                          style={{ fontSize: "16px" }}
+                          className="mt-3 text-center"
+                        >
+                          <b>
+                            Don&apos;t you have an account?{" "}
+                            <a href="/register">Register Now</a>
+                          </b>
+                        </p>
                       </div>
 
-                      {apiError && (
+                      {/* {apiError && (
                         <div
                           className="alert alert-danger alert-dismissible fade show mt-4"
                           role="alert"
@@ -167,12 +196,19 @@ const SignIn = () => {
                             aria-label="Close"
                           ></button>
                         </div>
-                      )}
+                      )} */}
                     </form>
                   </div>
                 </div>
               </div>
             </div>
+            {toastMessage && (
+              <Toast
+                message={toastMessage}
+                type={toastType}
+                onClose={() => setToastMessage(null)}
+              />
+            )}
             <div className="col-md-12 col-12 col-lg-6 col-xl-6 ms-auto me-auto border-0">
               <div className="login-form-container border-0 d-flex flex-column align-items-center justify-content-center">
                 <img

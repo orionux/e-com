@@ -17,9 +17,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import Link from "next/link";
-import { apiUrl } from "@/app/api/apiServices";
-
+// import a from "next/a";
+import { apiUrl, getTokenFromCookies } from "@/app/api/apiServices";
+import Toast from "@/Components/Toast";
+import { CartItem } from "@/app/types/types";
 
 type Product = {
   id: number;
@@ -64,6 +65,9 @@ const ProductPage = () => {
   const [isMounted, setIsMounted] = useState(false);
   const [quantity, setQuantity] = useState<number>(1);
   const [relatedProduct, setRelatedProduct] = useState<Product[]>([]);
+  const token = typeof window !== "undefined" ? getTokenFromCookies() : null;
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [toastType, setToastType] = useState<"success" | "error">("success");
 
   const fetchRelatedProducts = async () => {
     setIsMounted(true);
@@ -87,12 +91,9 @@ const ProductPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(
-        `${apiUrl}/product-details/${id}`,
-        {
-          method: "GET",
-        }
-      );
+      const response = await fetch(`${apiUrl}/product-details/${id}`, {
+        method: "GET",
+      });
 
       if (response.ok) {
         const data: Product = await response.json();
@@ -113,7 +114,6 @@ const ProductPage = () => {
   //     fetchProducts();
   //   }
   // }, [id]);
-
 
   useEffect(() => {
     setIsMounted(true);
@@ -162,9 +162,11 @@ const ProductPage = () => {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert(
+    setQuantity(1);
+    setToastMessage(
       `${product.product_name} has been added to your cart with quantity: ${quantity}.`
     );
+    setToastType("success");
   };
 
   const addToFavorite = (product: Product) => {
@@ -181,36 +183,32 @@ const ProductPage = () => {
     }
 
     localStorage.setItem("favorite", JSON.stringify(favorite));
-    alert(`${product.product_name} has been added to your favorite.`);
+    setQuantity(1);
+    setToastMessage(`${product.product_name} has been added to your favorite.`);
+    setToastType("success");
+  };
+
+  const addToCartRelated = (product: CartItem) => {
+    let cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    const productExists = cart.find((item: CartItem) => item.id === product.id);
+
+    if (productExists) {
+      cart = cart.map((item: CartItem) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setToastMessage(`${product.product_name} has been added to your cart.`);
+    setToastType("success");
   };
 
   return (
     <Layout>
       <div>
-        <div
-          className="breadcrumb-area pt-205 pb-210"
-          style={{
-            backgroundImage: "url(/assets/img/Background.png)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-          }}
-        >
-          <div className="container">
-            <div
-              className="breadcrumb-content text-center"
-              style={{ marginTop: "-30px", marginBottom: "30px" }}
-            >
-              <h2>product details</h2>
-              <ul>
-                <li>
-                  <a href="#">home</a>
-                </li>
-                <li> product details </li>
-              </ul>
-            </div>
-          </div>
-        </div>
         <div className="product-details ptb-100 pb-90">
           <div className="container">
             <div className="row">
@@ -251,6 +249,20 @@ const ProductPage = () => {
                                 alt="Featured image"
                               />
                             </a>
+                            {product.status !== "active" && (
+                              <div
+                                className="d-flex px-3 py-1 rounded position-absolute top-0 right-0"
+                                style={{
+                                  backgroundColor: "#FF0000",
+                                  fontSize: "12px",
+                                  color: "#fff",
+                                  width: "max-content",
+                                  right: "-20px",
+                                }}
+                              >
+                                Sold Out
+                              </div>
+                            )}
                           </div>
                         </div>
                       )}
@@ -300,182 +312,173 @@ const ProductPage = () => {
               <div className="col-md-12 col-lg-5 col-12">
                 <div className="product-details-content">
                   <h3>{product.product_name}</h3>
-                  <div className="rating-number">
-                    <div className="quick-view-rating">
-                      <i className="pe-7s-star red-star"></i>
-                      <i className="pe-7s-star red-star"></i>
-                      <i className="pe-7s-star"></i>
-                      <i className="pe-7s-star"></i>
-                      <i className="pe-7s-star"></i>
-                    </div>
-                    <div className="quick-view-number">
-                      <span>2 Rating (S)</span>
-                    </div>
-                  </div>
                   <div className="details-price">
-                    {typeof window !== "undefined" &&
-                      localStorage.getItem("authToken") && (
-                        <span>$20</span>
-                        // <span>{product.price}</span>
-                      )}
+                    {token ? (
+                      <>
+                        <span>${product.retail_price}</span>
+                      </>
+                    ) : null}
                   </div>
                   <p>{product.description}</p>
-                  {typeof window !== "undefined" &&
-                    localStorage.getItem("authToken") && (
-                      <div className="quickview-plus-minus">
-                        <div className="cart-plus-minus p-0">
-                          <input
-                            type="number"
-                            value={quantity}
-                            min="1"
-                            onChange={(e) =>
-                              setQuantity(parseInt(e.target.value))
-                            }
-                            className="p-0 px-2"
-                          />
-                        </div>
-                        <div className="quickview-btn-cart">
-                          <button
-                            className=""
-                            style={{
-                              backgroundColor: "#333",
-                              color: "#fff",
-                              padding: "11px 20px",
-                              border: "none",
-                              outline: "none",
-                            }}
-                            onClick={() => addToCart(product, quantity)}
-                          >
-                            Add to Cart
-                          </button>
-                        </div>
-                        <div className="quickview-btn-wishlist">
-                          <a
-                            className="btn-hover"
-                            href="#"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              addToFavorite(product);
-                            }}
-                          >
-                            <i className="pe-7s-like"></i>
-                          </a>
-                        </div>
+
+                  {token ? (
+                    <div className="quickview-plus-minus">
+                      <div className="cart-plus-minus p-0">
+                        <input
+                          type="number"
+                          value={quantity}
+                          min="1"
+                          onChange={(e) =>
+                            setQuantity(parseInt(e.target.value))
+                          }
+                          className="p-0 px-2"
+                        />
                       </div>
-                    )}
+                      <div className="quickview-btn-cart">
+                        <button
+                          className=""
+                          style={{
+                            backgroundColor: "#333",
+                            color: "#fff",
+                            padding: "11px 20px",
+                            border: "none",
+                            outline: "none",
+                          }}
+                          onClick={() => addToCart(product, quantity)}
+                        >
+                          Add to Cart
+                        </button>
+                      </div>
+                      <div className="quickview-btn-wishlist">
+                        <a
+                          className="btn-hover"
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            addToFavorite(product);
+                          }}
+                        >
+                          <i className="pe-7s-like"></i>
+                        </a>
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {/* <div className="product-description-review-area pb-90">
-          <div className="container">
-            <div className="product-description-review text-center">
-              <div className="description-review-title nav" role={"tablist"}>
-                <a
-                  className="active"
-                  href="#pro-dec"
-                  data-bs-toggle="tab"
-                  role="tab"
-                  aria-selected="true"
-                >
-                  Description
-                </a>
-                <a
-                  href="#pro-review"
-                  data-bs-toggle="tab"
-                  role="tab"
-                  aria-selected="false"
-                >
-                  Reviews (0)
-                </a>
-              </div>
-              <div className="description-review-text tab-content">
-                <div
-                  className="tab-pane active show fade"
-                  id="pro-dec"
-                  role="tabpanel"
-                >
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in
-                  </p>
-                </div>
-                <div className="tab-pane fade" id="pro-review" role="tabpanel">
-                  <a href="#">Be the first to write your review!</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
+        {toastMessage && (
+          <Toast
+            message={toastMessage}
+            type={toastType}
+            onClose={() => setToastMessage(null)}
+          />
+        )}
         <div className="product-area pb-95">
           <div className="container">
             <div className="section-title-3 text-center mb-50">
               <h2>Related products</h2>
             </div>
             <div className="product-style">
-                <Swiper
-                  modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-                  spaceBetween={50}
-                  slidesPerView={4}
-                  navigation={true}
-                  pagination={false}
-                  scrollbar={false}
-                  autoplay={{
-                    delay: 5000,
-                    disableOnInteraction: true,
-                  }}
-                  loop={true}
-                  onSwiper={(swiper) => console.log(swiper)}
-                  onSlideChange={() => console.log("slide change")}
-                >
-                  {shuffledProducts.map((product: any) => (
-                    <SwiperSlide key={product.id}>
-                      <div className="product-wrapper">
-                        <div className="product-img">
-                          <Link href={`/product/${product.id}`}>
-                            <img
-                              src={product.featured_image_url}
-                              alt={product.product_name}
-                              style={{ width: "90%" }}
-                            />
-                          </Link>
-                          <div className="product-action">
-                            <Link
-                              className="animate-left"
-                              title="Wishlist"
-                              href="/favProducts"
-                            >
-                              <i className="pe-7s-like"></i>
-                            </Link>
-                            <Link
-                              className="animate-right"
-                              title="Quick View"
-                              href={`/product/${product.id}`}
-                            >
-                              <i className="pe-7s-look"></i>
-                            </Link>
+              <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+                spaceBetween={50}
+                slidesPerView={4}
+                navigation={true}
+                pagination={false}
+                scrollbar={false}
+                autoplay={{
+                  delay: 5000,
+                  disableOnInteraction: true,
+                }}
+                loop={true}
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log("slide change")}
+              >
+                {shuffledProducts.map((product: any) => (
+                  <SwiperSlide key={product.id}>
+                    <div className="product-wrapper">
+                      <div className="product-img">
+                        <a href={`/product/${product.id}`}>
+                          <img
+                            src={product.featured_image_url}
+                            alt={product.product_name}
+                            style={{ width: "90%" }}
+                          />
+                        </a>
+                        <div className="product-action">
+                          {token ? (
+                            <>
+                              <a
+                                className="animate-top"
+                                title="Wishlist"
+                                href=""
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  addToFavorite({
+                                    ...product,
+                                    quantity: 1,
+                                  });
+                                }}
+                              >
+                                <i className="pe-7s-like"></i>
+                              </a>
+                              <a
+                                className="animate-top"
+                                title="Add To Cart"
+                                href=""
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  addToCartRelated({
+                                    ...product,
+                                    quantity: 1,
+                                  });
+                                }}
+                              >
+                                <i className="pe-7s-cart"></i>
+                              </a>
+                            </>
+                          ) : null}
+                          <a
+                            className="animate-right"
+                            title="Quick View"
+                            href={`/product/${product.id}`}
+                          >
+                            <i className="pe-7s-look"></i>
+                          </a>
+                        </div>
+                        {product.status !== "active" && (
+                          <div
+                            className="d-flex px-3 py-1 rounded position-absolute top-0 right-0"
+                            style={{
+                              backgroundColor: "#FF0000",
+                              fontSize: "12px",
+                              color: "#fff",
+                              width: "max-content",
+                              right: "-20px",
+                            }}
+                          >
+                            Sold Out
                           </div>
-                        </div>
-                        <div className="funiture-product-content text-center">
-                          <h4>
-                            <Link href={`/product/${product.id}`}>
-                              {product.product_name}
-                            </Link>
-                          </h4>
-                          {typeof window !== "undefined" &&
-                            localStorage.getItem("authToken") && (
-                              <span>${product.retail_price}</span>
-                            )}
-                        </div>
+                        )}
                       </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
+                      <div className="funiture-product-content text-center">
+                        <h4>
+                          <a href={`/product/${product.id}`}>
+                            {product.product_name}
+                          </a>
+                        </h4>
+                        {token ? (
+                          <>
+                            <span>${product.retail_price}</span>
+                          </>
+                        ) : null}
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           </div>
         </div>
@@ -485,12 +488,14 @@ const ProductPage = () => {
 };
 
 const Preloader = () => (
-  <div className="preloader-container" style={{height: "100vh", width: '100vw'}}>
+  <div
+    className="preloader-container"
+    style={{ height: "100vh", width: "100vw" }}
+  >
     <div className="preloader-dot"></div>
     <div className="preloader-dot"></div>
     <div className="preloader-dot"></div>
   </div>
 );
-
 
 export default ProductPage;

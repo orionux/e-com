@@ -8,7 +8,7 @@ const page = () => {
         <div
           className="breadcrumb-area"
           style={{
-            backgroundImage: "url(assets/img/privacy.webp)",
+            backgroundImage: "url(assets/img/Background.png)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center top",
@@ -23,12 +23,12 @@ const page = () => {
               className="breadcrumb-content text-center"
               style={{ marginTop: "-30px", marginBottom: "30px" }}
             >
-              <h2>Privacy Policy</h2>
+              <h2 className="text-dark">Privacy Policy</h2>
               <ul>
                 <li>
-                  <a href="/">home</a>
+                  <a href="/" className="text-dark">home</a>
                 </li>
-                <li>Privacy Policy</li>
+                <li className="text-dark">Privacy Policy</li>
               </ul>
             </div>
           </div>
@@ -43,7 +43,7 @@ const page = () => {
                       Privacy Policy<span></span>
                     </h2>
                     <p>
-                      At Ferolis, we are committed to protecting the privacy and
+                      At Fort house, we are committed to protecting the privacy and
                       security of our users&apos; personal information. This
                       Privacy Policy explains how we collect, use, and safeguard
                       the data provided by our users. By accessing or using our
@@ -55,7 +55,7 @@ const page = () => {
                     <h4>Information Collection:</h4>
                     <p>
                       Personal Information: When you create an account or place
-                      an order on Ferolis, we may collect personal information
+                      an order on Fort house, we may collect personal information
                       such as your name, email address, shipping address, and
                       payment details. This information is necessary to process
                       your orders, provide customer support, and improve your
@@ -65,7 +65,7 @@ const page = () => {
                       and operating system. This data helps us analyze user
                       behavior, diagnose technical issues, and enhance our
                       platform&apos;s performance. Cookies and Tracking
-                      Technologies: Ferolis uses cookies and similar tracking
+                      Technologies: Fort house uses cookies and similar tracking
                       technologies to enhance your browsing experience,
                       personalize content, and analyze user trends. You have the
                       option to disable cookies through your browser settings,
@@ -108,7 +108,7 @@ const page = () => {
                   <div className="story-details-bottom">
                     <h4>Data Security:</h4>
                     <p>
-                      Ferolis implements reasonable security measures to protect
+                      Fort house implements reasonable security measures to protect
                       your personal information from unauthorized access, use,
                       or disclosure. However, no data transmission over the
                       internet or storage system is completely secure. We cannot
@@ -138,7 +138,7 @@ const page = () => {
                   <div className="story-details-bottom">
                     <h4>Changes to the Privacy Policy:</h4>
                     <p>
-                      Ferolis may update this Privacy Policy from time to time.
+                      Fort house may update this Privacy Policy from time to time.
                       Any changes will be posted on our platform, and the
                       revised Privacy Policy will be effective when posted.
                     </p>

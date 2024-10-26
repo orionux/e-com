@@ -2,10 +2,15 @@
 
 import Layout from '@/Components'
 import React, { useEffect, useState } from 'react'
+import { CartItem } from '../types/types';
+
 
 const FavProducts = () => {
     const [favorite, setFavorite] = useState<any[]>([]);
     const [showModal, setShowModal] = useState(false);
+    const [toastMessage, setToastMessage] = useState<string | null>(null);
+    const [toastType, setToastType] = useState<"success" | "error">("success");
+
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -17,7 +22,7 @@ const FavProducts = () => {
     const removeFromCart = (productId: any) => {
         const updatedCart = favorite.filter((item) => item.id !== productId);
         setFavorite(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        localStorage.setItem('favorite', JSON.stringify(updatedCart));
     };
 
     const updateCartQuantity = (productId: any, newQuantity: number) => {
@@ -25,30 +30,37 @@ const FavProducts = () => {
             item.id === productId ? { ...item, quantity: newQuantity } : item
         );
         setFavorite(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        localStorage.setItem('favorite', JSON.stringify(updatedCart));
     };
+
+    const addToCart = (product: CartItem) => {
+        let cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+      
+        const productExists = cart.find((item: CartItem) => item.id === product.id);
+      
+        if (productExists) {
+          cart = cart.map((item: CartItem) =>
+            item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          );
+        } else {
+          cart.push({ ...product, quantity: 1 });
+        }
+      
+        localStorage.setItem("cart", JSON.stringify(cart));
+      
+        const updatedFavorite = favorite.filter((item) => item.id !== product.id);
+        setFavorite(updatedFavorite);
+        localStorage.setItem("favorite", JSON.stringify(updatedFavorite));
+      
+        setToastMessage(`${product.product_name} has been added to your cart.`);
+        setToastType("success");
+      };
+      
+    
+
     return (
         <Layout>
-            <div className="breadcrumb-area pt-205 pb-210"
-                style={{
-                    backgroundImage: "url(assets/img/Background.png)",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center top",
-                }}>
-                <div className="container">
-                    <div className="breadcrumb-content text-center"
-                        style={{ marginTop: "-30px", marginBottom: "30px" }}>
-                        <h2>wishlist</h2>
-                        <ul>
-                            <li><a href="#">home</a></li>
-                            <li> wishlist </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div className="cart-main-area pt-95 pb-100 wishlist">
+            <div className="cart-main-area pt-95 pb-100 wishlist" style={{ minHeight: '80vh' }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -81,7 +93,7 @@ const FavProducts = () => {
                                                         <a href={`/product/${product.id}`}>{product.product_name}</a>
                                                     </td>
                                                     <td className="product-price-cart">
-                                                        <span className="amount">${product.price}</span>
+                                                        <span className="amount">${product.retail_price}</span>
                                                     </td>
                                                     <td className="product-quantity">
                                                         <input
@@ -91,9 +103,8 @@ const FavProducts = () => {
                                                             onChange={(e) => updateCartQuantity(product.id, parseInt(e.target.value))}
                                                         />
                                                     </td>
-                                                    {/* <td className="product-subtotal">${product.price * product.quantity}</td> */}
                                                     <td className="product-subtotal">
-                                                    <button className='mt-2' type="button" onClick={()=> console.log("clicked")} style={{ backgroundColor: "#333", color: "#fff", padding: "11px 20px", border: "none", outline: 'none' }}>Add to Cart</button>
+                                                        <button className='mt-2' type="button" onClick={() => addToCart(product)} style={{ backgroundColor: "#333", color: "#fff", padding: "11px 20px", border: "none", outline: 'none' }}>Add to Cart</button>
                                                     </td>
                                                 </tr>
                                             ))}

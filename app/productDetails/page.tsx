@@ -8,7 +8,7 @@ const productDetails = () => {
         <div
           className="breadcrumb-area"
           style={{
-            backgroundImage: "url(assets/img/aboutBanner.png)",
+            backgroundImage: "url(assets/img/Background.png)",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: "center top",
@@ -23,12 +23,12 @@ const productDetails = () => {
               className="breadcrumb-content text-center"
               style={{ marginTop: "-30px", marginBottom: "30px" }}
             >
-              <h2>product details</h2>
+              <h2 className="text-dark">product details</h2>
               <ul>
                 <li>
-                  <a href="#">home</a>
+                  <a href="#" className="text-dark">home</a>
                 </li>
-                <li> product details </li>
+                <li className="text-dark"> product details </li>
               </ul>
             </div>
           </div>

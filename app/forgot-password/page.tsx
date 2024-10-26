@@ -2,20 +2,16 @@
 
 import React, { useState, useEffect } from "react";
 import { apiUrl } from "../api/apiServices";
+import useAuth from "@/hooks/useAuth";
 
-const SignIn = () => {
+const ForgotPassword = () => {
+  // const { isLoading, isLoggedIn } = useAuth();
   const [formData, setFormData] = useState({ email: "" });
   const [error, setError] = useState({ email: "" });
-  const [apiError, setApiError] = useState("");
+  
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const token = localStorage.getItem("authToken");
-      if (token) {
-        window.location.href = "/dashboard";
-      }
-    }
-  }, []);
+  const [apiError, setApiError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
@@ -41,6 +37,9 @@ const SignIn = () => {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+    setApiError(``);
+    setSuccessMessage(null);
+    
 
     if (!validateForm()) {
       return;
@@ -48,29 +47,22 @@ const SignIn = () => {
 
     const formDataToSend = new FormData();
     formDataToSend.append("email", formData.email);
+    localStorage.setItem('reset',  formData.email || '');
 
     try {
-      const response = await fetch(`${apiUrl}/login`, {
+      const response = await fetch(`${apiUrl}/forgot-password`, {
         method: "POST",
         body: formDataToSend,
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Login successful:", data);
-
-        if (typeof window !== "undefined") {
-          const customerId = data.user.id;
-          const customerName = data.user.customer_details.customer_name;
-
-          localStorage.setItem("customer_id", customerId.toString());
-          localStorage.setItem("customer_name", customerName);
-
-          const tempToken = Math.random().toString(36).substr(2);
-          localStorage.setItem("authToken", tempToken);
-
-          setApiError("");
-          window.location.href = "/dashboard";
+        if(data.status === 'success'){
+          console.log(data);
+          setSuccessMessage('Please check your email for the OTP. ');
+          window.location.href = "/reset-password";
+        }else{
+          setApiError(`OTP is invalid`);
         }
       } else {
         const errorMessage = await response.text();
@@ -82,7 +74,10 @@ const SignIn = () => {
       console.error("Error:", error);
     }
   };
-
+  // if (isLoggedIn) {
+  //   window.location.href = "/signin";
+  // }
+  
   return (
     <div>
       <div className="register-area">
@@ -193,4 +188,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default ForgotPassword;

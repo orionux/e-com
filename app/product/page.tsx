@@ -3,15 +3,15 @@
 "use client";
 
 import Layout from "@/Components";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { addToCart, addToFavorite } from "../utils";
-import type { Product, Category } from "../types/types";
+import type { Product, Category, CartItem, FavoriteItem } from "../types/types";
 import {
   fetchAllProducts,
   fetchCategories,
   fetchFilteredProducts,
+  getTokenFromCookies,
 } from "../api/apiServices";
+import Toast from "@/Components/Toast";
 
 const Product = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -29,6 +29,9 @@ const Product = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(9);
   const [loading, setLoading] = useState(true);
+  const token = typeof window !== "undefined" ? getTokenFromCookies() : null;
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [toastType, setToastType] = useState<"success" | "error">("success");
 
   const loadProducts = async () => {
     setLoading(true);
@@ -41,7 +44,7 @@ const Product = () => {
         submittedMaxPrice
       );
 
-      console.log("Filtered products:", filteredProducts);
+      // console.log("Filtered products:", filteredProducts);
 
       if (filteredProducts && typeof filteredProducts === "object") {
         const productArray = Object.values(filteredProducts);
@@ -125,38 +128,48 @@ const Product = () => {
   const totalProducts = products.length;
   const totalPages = Math.ceil(totalProducts / productsPerPage);
 
-  // if (loading) {
-  //   return <Preloader />;
-  // }
+  const addToFavorite = (product: FavoriteItem) => {
+    let favorite: FavoriteItem[] = JSON.parse(
+      localStorage.getItem("favorite") || "[]"
+    );
 
+    const productExists = favorite.find(
+      (item: FavoriteItem) => item.id === product.id
+    );
+
+    if (productExists) {
+      favorite = favorite.map((item: FavoriteItem) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+    } else {
+      favorite.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("favorite", JSON.stringify(favorite));
+    setToastMessage(`${product.product_name} has been added to your favorite.`);
+    setToastType("success");
+  };
+
+  const addToCart = (product: CartItem) => {
+    let cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    const productExists = cart.find((item: CartItem) => item.id === product.id);
+
+    if (productExists) {
+      cart = cart.map((item: CartItem) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setToastMessage(`${product.product_name} has been added to your cart.`);
+    setToastType("success");
+  };
   return (
     <Layout>
       <div>
-        {/* <div
-          className="breadcrumb-area pt-205 breadcrumb-padding pb-210"
-          style={{
-            backgroundImage: "url(assets/img/aboutBanner.png)",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: "center top",
-          }}
-        >
-          <div className="container-fluid">
-            <div
-              className="breadcrumb-content text-center"
-              style={{ marginTop: "-30px", marginBottom: "30px" }}
-            >
-              <h2>Our Products</h2>
-              <ul>
-                <li>
-                  <a href="#">home</a>
-                </li>
-                <li>Our Products</li>
-              </ul>
-            </div>
-          </div>
-        </div> */}
-
         <div className="shop-page-wrapper shop-page-padding py-0 py-lg-5">
           <div className="container-fluid">
             <div className="row gy-5 d-flex flex-column-reverse flex-lg-row">
@@ -223,39 +236,31 @@ const Product = () => {
                         >
                           <div className="single-top-rated">
                             <div className="top-rated-img">
-                              <Link href={`/product/${product.id}`}>
+                              <a href={`/product/${product.id}`}>
                                 <img
                                   src={product.featured_image_url}
                                   alt={product.product_name}
                                   width={91}
                                   height={88}
                                 />
-                              </Link>
+                              </a>
                             </div>
                             <div className="top-rated-text">
                               <h4>
-                                <Link href={`/product/${product.id}`}>
+                                <a href={`/product/${product.id}`}>
                                   {product.product_name.split(" ").length > 5
                                     ? product.product_name
                                         .split(" ")
                                         .slice(0, 5)
                                         .join(" ") + "..."
                                     : product.product_name}
-                                </Link>
+                                </a>
                               </h4>
-                              <div className="top-rated-rating">
-                                <ul>
-                                  {[...Array(5)].map((star, i) => (
-                                    <li key={i}>
-                                      <i className="pe-7s-star"></i>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                              {typeof window !== "undefined" &&
-                                localStorage.getItem("authToken") && (
+                              {token ? (
+                                <>
                                   <span>${product.retail_price}</span>
-                                )}
+                                </>
+                              ) : null}
                             </div>
                           </div>
                         </div>
@@ -283,10 +288,10 @@ const Product = () => {
                               style={{
                                 borderTopRightRadius: "50px",
                                 borderBottomRightRadius: "50px",
-                                display: "flex", 
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                backgroundColor: 'rgba(95, 107, 110, 0.8)'
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                backgroundColor: "rgba(95, 107, 110, 0.8)",
                               }}
                               className="searchButton"
                             >
@@ -305,7 +310,11 @@ const Product = () => {
                         </div>
                         <div className="shop-selector pt-4 pt-lg-0 col-12 col-lg-5 d-flex flex-row justify-content-start align-items-center">
                           <label className="col-5 col-lg-2">Sort By : </label>
-                          <select className="" value={sort} onChange={handleSortChange}>
+                          <select
+                            className=""
+                            value={sort}
+                            onChange={handleSortChange}
+                          >
                             <option value="a-to-z">A to Z</option>
                             <option value="z-to-a">Z to A</option>
                           </select>
@@ -343,7 +352,7 @@ const Product = () => {
                                 >
                                   <div className="product-wrapper shadow p-3 rounded">
                                     <div className="product-img d-flex justify-content-center">
-                                      <Link href={`/product/${product.id}`}>
+                                      <a href={`/product/${product.id}`}>
                                         <img
                                           src={
                                             product.featured_image_url &&
@@ -362,12 +371,11 @@ const Product = () => {
                                             height: "200px",
                                           }}
                                         />
-                                      </Link>
+                                      </a>
                                       <div className="product-action">
-                                        {typeof window !== "undefined" &&
-                                        localStorage.getItem("authToken") ? (
+                                        {token ? (
                                           <>
-                                            <Link
+                                            <a
                                               className="animate-top"
                                               title="Wishlist"
                                               href=""
@@ -380,8 +388,8 @@ const Product = () => {
                                               }}
                                             >
                                               <i className="pe-7s-like"></i>
-                                            </Link>
-                                            <Link
+                                            </a>
+                                            <a
                                               className="animate-top"
                                               title="Add To Cart"
                                               href=""
@@ -394,17 +402,31 @@ const Product = () => {
                                               }}
                                             >
                                               <i className="pe-7s-cart"></i>
-                                            </Link>
+                                            </a>
                                           </>
                                         ) : null}
-                                        <Link
+                                        <a
                                           className="animate-right"
                                           title="Quick View"
                                           href={`/product/${product.id}`}
                                         >
                                           <i className="pe-7s-look"></i>
-                                        </Link>
+                                        </a>
                                       </div>
+                                      {product.status !== "active" && (
+                                        <div
+                                          className="d-flex px-3 py-1 rounded position-absolute top-0 right-0"
+                                          style={{
+                                            backgroundColor: "#FF0000",
+                                            fontSize: "12px",
+                                            color: "#fff",
+                                            width: "max-content",
+                                            right: "-20px",
+                                          }}
+                                        >
+                                          Sold Out
+                                        </div>
+                                      )}
                                     </div>
                                     <div className="product-content">
                                       <h4
@@ -413,7 +435,7 @@ const Product = () => {
                                           textAlign: "center",
                                         }}
                                       >
-                                        <Link href={`/product/${product.id}`}>
+                                        <a href={`/product/${product.id}`}>
                                           {product.product_name.split(" ")
                                             .length > 10
                                             ? product.product_name
@@ -421,13 +443,17 @@ const Product = () => {
                                                 .slice(0, 10)
                                                 .join(" ") + "..."
                                             : product.product_name}
-                                        </Link>
+                                        </a>
                                       </h4>
                                       <div
                                         className="product-price d-flex justify-content-center"
                                         style={{ textAlign: "center" }}
                                       >
-                                        <span>${product.retail_price}</span>
+                                        {token ? (
+                                          <>
+                                            <span>${product.retail_price}</span>
+                                          </>
+                                        ) : null}
                                       </div>
                                     </div>
                                   </div>
@@ -438,7 +464,14 @@ const Product = () => {
                         )}
                       </div>
                     </div>
-                    <div className="pagination-area pt-5">
+                    {toastMessage && (
+                      <Toast
+                        message={toastMessage}
+                        type={toastType}
+                        onClose={() => setToastMessage(null)}
+                      />
+                    )}
+                    <div className="pagination-area pt-5 d-flex flex-row justify-content-end">
                       <nav>
                         <ul className="pagination justify-content-start">
                           {[...Array(totalPages)].map((_, index) => (
@@ -448,8 +481,15 @@ const Product = () => {
                                 index + 1 === currentPage ? "active" : ""
                               }`}
                               onClick={() => handlePageChange(index + 1)}
+                              style={{ padding: "0px 5px" }}
                             >
-                              <a className="page-link text-black">
+                              <a
+                                className="page-a text-black"
+                                style={{
+                                  padding: "5px 10px",
+                                  borderRadius: "5px",
+                                }}
+                              >
                                 {index + 1}
                               </a>
                             </li>

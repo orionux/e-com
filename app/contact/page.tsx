@@ -20,15 +20,15 @@ const page = () => {
         >
           <div className="container">
             <div
-              className="breadcrumb-content text-center"
+              className="breadcrumb-content text-center "
               style={{ marginTop: "-30px", marginBottom: "30px" }}
             >
-              <h2>Contact Us</h2>
+              <h2 className="text-dark">Contact Us</h2>
               <ul>
                 <li>
-                  <a href="/">home</a>
+                  <a href="/" className="text-dark">home</a>
                 </li>
-                <li>Contact Us</li>
+                <li className="text-dark">Contact Us</li>
               </ul>
             </div>
           </div>
