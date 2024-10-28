@@ -256,11 +256,9 @@ const Product = () => {
                                     : product.product_name}
                                 </a>
                               </h4>
-                              {token ? (
                                 <>
                                   <span>${product.retail_price}</span>
                                 </>
-                              ) : null}
                             </div>
                           </div>
                         </div>
@@ -373,7 +371,7 @@ const Product = () => {
                                         />
                                       </a>
                                       <div className="product-action">
-                                        {token ? (
+                                       
                                           <>
                                             <a
                                               className="animate-top"
@@ -404,7 +402,6 @@ const Product = () => {
                                               <i className="pe-7s-cart"></i>
                                             </a>
                                           </>
-                                        ) : null}
                                         <a
                                           className="animate-right"
                                           title="Quick View"
@@ -449,11 +446,9 @@ const Product = () => {
                                         className="product-price d-flex justify-content-center"
                                         style={{ textAlign: "center" }}
                                       >
-                                        {token ? (
                                           <>
                                             <span>${product.retail_price}</span>
                                           </>
-                                        ) : null}
                                       </div>
                                     </div>
                                   </div>

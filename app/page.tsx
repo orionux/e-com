@@ -396,7 +396,6 @@ export default function Home() {
                                 />
                               </a>
                               <div className="product-action">
-                                {/* {token ? ( */}
                                   <>
                                     <a
                                       className="animate-top"
@@ -427,7 +426,6 @@ export default function Home() {
                                       <i className="pe-7s-cart"></i>
                                     </a>
                                   </>
-                                {/* ) : null} */}
                                 <a
                                   className="animate-right"
                                   title="Quick View"
@@ -462,11 +460,9 @@ export default function Home() {
                                     : product.product_name}
                                 </a>
                               </h4>
-                              {/* {token ? ( */}
                                 <>
                                   <span>${product.retail_price}</span>
                                 </>
-                              {/* ) : null} */}
                             </div>
                           </div>
                         </div>
@@ -556,7 +552,6 @@ export default function Home() {
                               />
                             </a>
                             <div className="product-action">
-                              {/* {token ? ( */}
                                 <>
                                   <a
                                     className="animate-top"
@@ -587,7 +582,6 @@ export default function Home() {
                                     <i className="pe-7s-cart"></i>
                                   </a>
                                 </>
-                              {/* ) : null} */}
                               <a
                                 className="animate-right"
                                 title="Quick View"
@@ -622,11 +616,9 @@ export default function Home() {
                                   : product.product_name}
                               </a>
                             </h4>
-                            {/* {token ? ( */}
                               <>
                                 <span>${product.retail_price}</span>
                               </>
-                            {/* ) : null} */}
                           </div>
                         </div>
                       </SwiperSlide>
@@ -736,7 +728,6 @@ export default function Home() {
                                       />
                                     </a>
                                     <div className="product-action">
-                                      {/* {token ? ( */}
                                         <>
                                           <a
                                             className="animate-top"
@@ -767,7 +758,6 @@ export default function Home() {
                                             <i className="pe-7s-cart"></i>
                                           </a>
                                         </>
-                                      {/* ) : null} */}
                                       <a
                                         className="animate-right"
                                         title="Quick View"
@@ -803,11 +793,9 @@ export default function Home() {
                                           : product.product_name}
                                       </a>
                                     </h4>
-                                    {/* {token ? ( */}
                                       <>
                                         <span>${product.retail_price}</span>
                                       </>
-                                    {/* ) : null} */}
                                   </div>
                                 </div>
                               </div>

@@ -313,15 +313,12 @@ const ProductPage = () => {
                 <div className="product-details-content">
                   <h3>{product.product_name}</h3>
                   <div className="details-price">
-                    {token ? (
                       <>
                         <span>${product.retail_price}</span>
                       </>
-                    ) : null}
                   </div>
                   <p>{product.description}</p>
 
-                  {token ? (
                     <div className="quickview-plus-minus">
                       <div className="cart-plus-minus p-0">
                         <input
@@ -362,7 +359,6 @@ const ProductPage = () => {
                         </a>
                       </div>
                     </div>
-                  ) : null}
                 </div>
               </div>
             </div>
@@ -408,7 +404,6 @@ const ProductPage = () => {
                           />
                         </a>
                         <div className="product-action">
-                          {token ? (
                             <>
                               <a
                                 className="animate-top"
@@ -439,7 +434,6 @@ const ProductPage = () => {
                                 <i className="pe-7s-cart"></i>
                               </a>
                             </>
-                          ) : null}
                           <a
                             className="animate-right"
                             title="Quick View"
@@ -469,11 +463,9 @@ const ProductPage = () => {
                             {product.product_name}
                           </a>
                         </h4>
-                        {token ? (
                           <>
                             <span>${product.retail_price}</span>
                           </>
-                        ) : null}
                       </div>
                     </div>
                   </SwiperSlide>
