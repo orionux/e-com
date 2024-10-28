@@ -12,6 +12,8 @@ import {
   getTokenFromCookies,
 } from "../api/apiServices";
 import Toast from "@/Components/Toast";
+import { IoMdSend } from "react-icons/io";
+
 
 const Product = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -180,27 +182,29 @@ const Product = () => {
                     <div className="price_filter">
                       <div className="price_slider_amount">
                         <div className="label-input">
-                          <label>Min price:</label>
+                          <label>Min:</label>
                           <input
                             type="number"
                             value={minPrice}
+                            style={{width:"70px"}}
                             onChange={(e) =>
                               setMinPrice(parseInt(e.target.value))
                             }
                           />
                         </div>
                         <div className="label-input">
-                          <label>Max price:</label>
+                          <label>Max:</label>
                           <input
                             type="number"
                             value={maxPrice}
+                            style={{width:"60px"}}
                             onChange={(e) =>
                               setMaxPrice(parseInt(e.target.value))
                             }
                           />
                         </div>
                         <button type="button" onClick={handlePriceFilterSubmit}>
-                          Filter
+                        <IoMdSend />
                         </button>
                       </div>
                     </div>
