@@ -211,7 +211,7 @@ const SignIn = () => {
             )}
             <div className="col-md-12 col-12 col-lg-6 col-xl-6 ms-auto me-auto border-0">
               <div className="login-form-container border-0 d-flex flex-column align-items-center justify-content-center">
-                <img
+                {/* <img
                   src="/assets/img/ORIGINAL PRODUCTS.png"
                   className="img-fluid"
                   alt=""
@@ -223,7 +223,7 @@ const SignIn = () => {
                   <b>
                     All types of tobacco and related products with a guarantee.
                   </b>
-                </p>
+                </p> */}
                 <img
                   src="/assets/img/login.png"
                   className="img-fluid"
