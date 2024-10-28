@@ -15,18 +15,17 @@ const page = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "end",
-            justifyContent: "end",
+            justifyContent: "center",
           }}
         >
           <div className="container">
             <div
-              className="breadcrumb-content text-center "
-              style={{ marginTop: "-30px", marginBottom: "30px" }}
+              className="breadcrumb-content text-end pe-lg-5 "
             >
               <h2 className="text-dark">Contact Us</h2>
               <ul>
                 <li>
-                  <a href="/" className="text-dark">home</a>
+                  <a href="/" className="text-dark">home /</a>
                 </li>
                 <li className="text-dark">Contact Us</li>
               </ul>
