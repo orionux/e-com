@@ -17,9 +17,7 @@ const Footer = () => {
               </a>
               <div className="footer-about-2">
                 <p style={{ maxWidth: "70%" }}>
-                  Fort house is a Netherlands-based company specializing in smoking
-                  accessories, offering high-quality products like rolling
-                  papers, lighters, and unique smoking tools.
+                Fort House is Sri Lanka’s leading website for premium smoking accessories, offering top-quality products such as rolling papers, lighters, and unique smoking tools. Known for its unbeatable offers and promotions, Fort House provides a wide range of items to meet every preference, delivering exceptional value and variety to customers across the island.
                 </p>
               </div>
             </div>

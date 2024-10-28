@@ -293,7 +293,7 @@ export default function Home() {
             </div>
           </div>
           <div
-            className="d-none d-lg-flex p-5 m-0 flex-column justify-content-end align-items-end"
+            className="d-none d-lg-flex p-5 m-0 flex-column justify-content-center align-items-end"
             style={{
               backgroundImage: `url("assets/img/Background.png")`,
               height: "90vh",
@@ -302,7 +302,7 @@ export default function Home() {
               backgroundSize: "cover",
             }}
           >
-            <div className="d-flex flex-column w-100 text-center justify-content-end align-items-center hero-text">
+            <div className="d-flex flex-column w-100 text-end justify-content-end align-items-end pe-lg-5 hero-text">
               <h2 className="mb-1">We are the Best</h2>
               <h2 className="mb-1">
                 <b>Smoking Accessories</b> Seller
