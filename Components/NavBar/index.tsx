@@ -120,7 +120,7 @@ const NavBar = () => {
                       About Us
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a
                       href="/privacy-policy"
                       className={`${
@@ -129,7 +129,7 @@ const NavBar = () => {
                     >
                       privacy policy
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a
                       href="/contact"
@@ -186,9 +186,9 @@ const NavBar = () => {
                     <li>
                       <a href="/about-us">About Us</a>
                     </li>
-                    <li>
+                    {/* <li>
                       <a href="/privacy-policy">privacy policy</a>
-                    </li>
+                    </li> */}
                     <li>
                       <a href="/contact">contact</a>
                     </li>
